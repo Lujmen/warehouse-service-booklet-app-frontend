@@ -1,0 +1,15 @@
+const getChamferingListByDate = async (date) => {
+  const { startDate, endDate } = date;
+  console.log(date);
+  const response = await fetch(process.env.REACT_APP_BASE_API_URL + `chamfering/getByDateRange?startDate=${startDate}&endDate=${endDate}`, {
+    method: 'GET',
+    credentials: 'include',
+  });
+  const data = response.json();
+  if (response.ok) {
+    return data;
+  } else {
+    throw new Error(data);
+  }
+};
+export default getChamferingListByDate;

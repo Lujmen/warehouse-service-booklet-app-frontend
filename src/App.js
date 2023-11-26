@@ -1,25 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import { Outlet } from 'react-router-dom';
+import { useAuth } from './context/authProvider';
+import NavBarIfUserPostedOnGantry from './components/navBar/navBarIfUserPostedOnGantryComponent';
+import NavBarIfUserNoLogin from './components/navBar/navBarIfUserNoLogin';
+import NavBarIfUserPostedOnForklift from './components/navBar/navBarIfUserPostedOnForklift';
+import NavBarIfForemanOrAdmin from './components/navBar/navBarIfForemanOrAdmin';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const { isLoading, userDetails, workplaceDetails } = useAuth();
+
+  if (isLoading) {
+    return (
+      <div>
+        <h1>LOADING</h1>
+      </div>
+    );
+  } else {
+    return (
+      <div className="App">
+        {(workplaceDetails.workplace === 'foreman' || workplaceDetails.workplace === 'admin') && <NavBarIfForemanOrAdmin />}
+        {workplaceDetails.workplace === '' && <NavBarIfUserNoLogin />}
+        {workplaceDetails.workplace === 'gantry' && <NavBarIfUserPostedOnGantry />}
+        {workplaceDetails.workplace === 'forklift' && <NavBarIfUserPostedOnForklift />}
+        <h1>{userDetails.username}</h1>
+        <Outlet />
+      </div>
+    );
+  }
 }
 
 export default App;
