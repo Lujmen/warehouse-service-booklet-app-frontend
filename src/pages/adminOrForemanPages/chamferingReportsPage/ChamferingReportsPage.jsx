@@ -6,15 +6,18 @@ import ChamferinEntryList from './components/chamferinEntryList';
 import { getChamferingTime } from '../../../service/getChamferingTime';
 import { checkIfShouldBeDisabledForChamferingTime, checkIfShouldBeDisabledForChamferingList } from './utils/checkIfShouldBeDisabled';
 import getChamferingListByDate from '../../../service/getChamferingListByDate';
+import './chamferingReportsPage.css';
+import PaginationBar from '../../../components/paginationBar/paginationBar';
 
 const ChamferingReportsPage = () => {
-  const [queryData, setQueryData] = useState({ key: '' });
+  const [queryData, setQueryData] = useState({ key: '', page: '1' });
+
   const {
     data: chamferingTime,
     isError: isErrorChamferingTime,
     isLoading: isLoadingChamferingTime,
   } = useQuery({
-    queryKey: ['chamferingTime'],
+    queryKey: ['chamferingTime', queryData],
     queryFn: () => getChamferingTime(queryData),
     onSuccess: () => refetchChamferingDateRangeList(),
 
@@ -29,25 +32,28 @@ const ChamferingReportsPage = () => {
     isLoading: isLoadingChamferingDateRangeList,
     refetch: refetchChamferingDateRangeList,
   } = useQuery({
-    queryKey: ['chamferingDateRangeList'],
+    queryKey: ['chamferingDateRangeList', queryData],
     queryFn: () => getChamferingListByDate(queryData),
     enabled: checkIfShouldBeDisabledForChamferingList(queryData),
     retry: false,
     cacheTime: 0,
   });
+  console.log('is this component rerendering ChamferingReportsPage');
 
   const submitData = (data) => {
-    setQueryData(data);
+    setQueryData({ ...queryData, key: data.key, endDate: data.endDate, startDate: data.startDate });
   };
 
   return (
-    <div>
+    <div className="chamfering-page-main-container">
       <ChamferingRangeEntriesForm handleSubmit={submitData} />
       {queryData?.key === 'time' && chamferingTime && !isLoadingChamferingTime && !isErrorChamferingTime && (
         <ChamferinRangeEntriesTime time={chamferingTime} />
       )}
       {queryData?.key === 'list' && chamferingDateRangeList && !isErrorChamferingDateRangeList && !isLoadingChamferingDateRangeList && (
-        <ChamferinEntryList list={chamferingDateRangeList} />
+        <div>
+          <ChamferinEntryList changePage={setQueryData} page={queryData.page} list={chamferingDateRangeList} />
+        </div>
       )}
     </div>
   );

@@ -1,5 +1,5 @@
-const getAllForUserFromCurrentShift = async () => {
-  const result = await fetch(process.env.REACT_APP_BASE_API_URL + 'chamfering/getAllForUserFromCurrentShift', {
+const getAllForUserFromCurrentShift = async (page) => {
+  const result = await fetch(process.env.REACT_APP_BASE_API_URL + `chamfering/getAllForUserFromCurrentShift?page=${page}`, {
     method: 'get',
     credentials: 'include',
   });

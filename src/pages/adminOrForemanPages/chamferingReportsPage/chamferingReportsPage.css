@@ -1,0 +1,30 @@
+div.chamfering-page-main-container{
+    display: flex;
+    flex-direction: column;
+    justify-content:center ;
+}
+/* chamfering form */
+div.chamfering-repotrs-form{
+    margin: auto;
+    max-width: 283px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+div.chamfering-repotrs-form h1{
+    padding-top: 1rem;
+}
+div.chamfering-repotrs-form div{
+    padding-top: 1rem;
+}
+/* chamfering time display  */
+div.chamfering-time-box{
+    display: flex;
+    flex-direction: column;
+    font-size: large;
+    
+}
+/* chamfering entries */
+
+/*Active users*/

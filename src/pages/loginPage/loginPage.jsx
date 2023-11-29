@@ -6,6 +6,7 @@ import { useAuth } from '../../context/authProvider';
 import { workplaceOptions } from './utils/workplaceDropDownList';
 import { forkliModelOptions } from './utils/forkliftWorkplaceModels';
 import { useNavigate } from 'react-router-dom';
+import './loginPage.css';
 
 const LoginPage = () => {
   const { data: forkliftModels, isLoading } = useQuery({ querKey: ['forkliftModels'], queryFn: forkliModelOptions });
@@ -25,19 +26,19 @@ const LoginPage = () => {
   };
 
   return (
-    <div>
+    <div className="content-box">
       <h1>Logowanie</h1>
       <div>
         <form onSubmit={handleFormSubmit} action="">
-          <div>
+          <div className="input-container">
             <label htmlFor="username">Username</label>
             <input onChange={handleChange} id="username" type="text" />
           </div>
-          <div>
+          <div className="input-container">
             <label htmlFor="password">Login</label>
             <input onChange={handleChange} id="password" type="text" />
           </div>
-          <div>
+          <div className="input-container">
             <label htmlFor="">Wybierz stanowisko:</label>
             <select id="workplace" onChange={handleChange}>
               {workplaceOptions.map((option) => (
@@ -48,7 +49,7 @@ const LoginPage = () => {
             </select>
           </div>
           {formData.workplace === 'forklift' && !isLoading && (
-            <div>
+            <div className="input-container">
               <label htmlFor="">Wybierz stanowisko:</label>
               <select id="workplaceModel" onChange={handleChange}>
                 {forkliftModels.map((option) => (
@@ -59,12 +60,12 @@ const LoginPage = () => {
               </select>
             </div>
           )}
-          <div>
-            <input type="submit" name="Login" />
+          <div className="input-container">
+            <input className="submit-button" type="submit" name="Login" value="Zaloguj" />
           </div>
         </form>
-        {loginFormError.message && <p>{loginFormError.message}</p>}
       </div>
+      <div className="error-container"> {loginFormError.message && <p>{loginFormError.message}</p>}</div>
     </div>
   );
 };

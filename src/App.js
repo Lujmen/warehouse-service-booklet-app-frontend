@@ -1,13 +1,10 @@
 import './App.css';
 import { Outlet } from 'react-router-dom';
 import { useAuth } from './context/authProvider';
-import NavBarIfUserPostedOnGantry from './components/navBar/navBarIfUserPostedOnGantryComponent';
-import NavBarIfUserNoLogin from './components/navBar/navBarIfUserNoLogin';
-import NavBarIfUserPostedOnForklift from './components/navBar/navBarIfUserPostedOnForklift';
-import NavBarIfForemanOrAdmin from './components/navBar/navBarIfForemanOrAdmin';
+import { NavBar } from './components/navBar/navBar';
 
 function App() {
-  const { isLoading, userDetails, workplaceDetails } = useAuth();
+  const { isLoading, userDetails } = useAuth();
 
   if (isLoading) {
     return (
@@ -18,11 +15,8 @@ function App() {
   } else {
     return (
       <div className="App">
-        {(workplaceDetails.workplace === 'foreman' || workplaceDetails.workplace === 'admin') && <NavBarIfForemanOrAdmin />}
-        {workplaceDetails.workplace === '' && <NavBarIfUserNoLogin />}
-        {workplaceDetails.workplace === 'gantry' && <NavBarIfUserPostedOnGantry />}
-        {workplaceDetails.workplace === 'forklift' && <NavBarIfUserPostedOnForklift />}
-        <h1>{userDetails.username}</h1>
+        <NavBar />
+        {userDetails?.username && <h1 className="user-info">Uzytkownik: {userDetails.username}</h1>}
         <Outlet />
       </div>
     );

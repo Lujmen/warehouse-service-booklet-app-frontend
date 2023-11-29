@@ -1,0 +1,180 @@
+div.main-container{
+    display: flex;
+    flex-direction:column;
+    min-width: 800px;
+}
+/* messages about workplace */
+div.message-box-container{
+    margin-left: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    min-height: 5rem;
+}
+div.message-box{
+    min-height: 5rem;
+    min-width: 480px;
+}
+@media(max-width: 900px){
+    div.message-box{
+        min-height: 8rem;
+    }
+}
+div.message-box-container div.button {
+    min-height: 2rem;
+
+}
+div.message-box-container div.button button{
+    min-height: 2rem;
+    min-width: 8rem;
+    font-weight: bold;
+    color: black;
+    border: none;
+    border-radius: 0.5rem;
+}
+div.message-box-container div.button button:hover{
+    color: gray;
+    cursor: pointer;
+}
+/* Entry container  */
+.service-booklet-entry-box{
+    display: flex;
+    min-height: 20rem;  
+    flex-direction: row;
+}
+@media(max-width: 700px){
+    .service-booklet-entry-box{
+       
+        flex-direction: column;
+    }
+}
+
+/*  */
+/* Links  */
+div.service-booklet-entry-link-box{
+    margin-left: 1rem; 
+}
+
+div.service-booklet-entry-link-item{
+    display: flex;
+    max-width: 8rem;
+    min-width:10rem;
+
+    min-height: 2rem;
+    text-align: center;
+    justify-content: center;
+    text-decoration: none;
+    margin-top: 2rem;
+}
+div.service-booklet-entry-link-item a{
+    text-decoration: none;
+    padding: 0.75rem;
+    margin: auto;
+    min-width: 100%;
+    border: 1px solid white;
+    border-radius: 1rem;
+}div.service-booklet-entry-link-item a:hover{
+    background-color: navy;
+}
+
+/*  */
+/*  entry from*/
+div.form-container{
+    background-color: navy;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    margin-left: 5rem;
+    min-height: 15rem;
+    min-width: 25rem;
+    max-width: 25rem;
+    margin-bottom: 1rem;
+}
+@media(max-width: 700px){
+    div.form-container{
+        margin-left: 1rem
+    }
+}
+div.form-container form{
+    padding: 0;
+}
+div.form-container h1{
+    margin-left: 1rem;
+
+}
+div.input-box{
+    min-height: 3rem;
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;   
+}
+div.input-box:nth-child(1){
+    margin-top: 0;
+
+}
+div.input-box:nth-child(3){
+    margin-top: 0;
+
+}
+div.input-box:nth-child(4){
+    margin-top: 0;
+
+}
+div.input-box label{
+    margin-right: 1rem;
+    min-width: 5rem;
+}
+div.input-box textarea{
+    color: black;
+}
+input.button{
+    min-height: 2rem;
+    min-width: 8rem;
+    color: black;
+    border: none;
+    border-radius: 0.5rem;
+}
+input.button:hover{
+    cursor: pointer;
+    color: gray;
+}
+input.button:disabled{
+    cursor: default;
+    color: black;
+   
+}
+/*  last entrie tabel*/
+table{
+    /* border-collapse: collapse; */
+    margin-top: 2rem;
+    background-color: navy;
+    margin:auto;
+    border-radius: 1rem;
+    padding: 1rem;
+    min-width: 40rem;
+    max-width: 700px;
+    
+}
+th,td{
+    background: blue;
+    padding: 0.4rem;
+    text-align: center;
+    border-radius: 0.4rem;
+    
+}
+
+
+
+
+
+
+
+
+    
+
+    
+   
+    
+    
+
+

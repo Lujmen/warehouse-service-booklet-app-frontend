@@ -1,0 +1,14 @@
+div.chamfering-main-container{
+    display: flex;
+    flex-direction: column;
+}
+/* form */
+div.form-container{
+
+}
+div.form-container form{
+    display: flex;
+    justify-content: space-around;
+}
+div.form-container form .input-box{
+}

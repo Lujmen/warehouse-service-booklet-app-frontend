@@ -21,27 +21,25 @@ const CharmferingForm = () => {
   };
 
   return (
-    <div>
+    <div className="chamfering-form-container">
       {/* dropdown to choose pipe */}
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="input-box">
           <label htmlFor="differenceFromPingink">Ilość mm różnicy długości do wyrownania 1 strona (od strony piankowania)</label>
           <input id="differenceFromPingink" onChange={handleChange} value={formState.differenceFromPingink} type="number" />
         </div>
-        <div>
+        <div className="input-box">
           <label htmlFor="diffrentFromQC">Ilość mm różnicy długości do wyrownania 2 strona (od strony qc)</label>
           <input id="diffrentFromQC" onChange={handleChange} value={formState.diffrentFromQC} type="number" />
         </div>
-        <div>
+        <div className="input-box">
           <label htmlFor="timeOfChamfering">czas fazowania rur</label>
           <input id="timeOfChamfering" onChange={handleChange} value={formState.timeOfChamfering} type="number" />
         </div>
-        <div>
-          <input type="submit" value="Dodaj" />
+        <div className="input-box">
+          <input className="submit-button" type="submit" value="Dodaj" />
         </div>
       </form>
-      <div>{isError && <p>{isError}</p>}</div>
-      <div>{isSucces && <p>Pomyslnie dodanno !</p>}</div>
     </div>
   );
 };

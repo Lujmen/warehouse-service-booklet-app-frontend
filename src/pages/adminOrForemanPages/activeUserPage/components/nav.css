@@ -1,0 +1,17 @@
+ div.active-users-nav{
+    display: flex;
+    flex-direction: column;
+}
+div.active-users-nav .nav-item{
+    margin-top: 1.5rem;
+
+}
+div.active-users-nav .nav-item a{
+    border: 1px solid white;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    text-decoration: none;
+}
+div.active-users-nav .nav-item a.active{
+    background-color: navy;
+}

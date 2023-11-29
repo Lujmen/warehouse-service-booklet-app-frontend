@@ -5,12 +5,13 @@ import { handeSubmitForm } from '../utils/handleSubmitForm';
 import { useAuth } from '../../../context/authProvider';
 import { useQueryClient } from '@tanstack/react-query';
 import { QueryCache } from '@tanstack/react-query';
+import { ifSbumitFormEnabled, isSubmitFormEnabled } from '../utils/isSubmitFormEnabled';
 
 const ServiceBookletEntryForm = () => {
   const queryClient = useQueryClient();
   const { workplaceDetails } = useAuth();
 
-  const [formState, setFormState] = useState({ status: '', issues: '', shift: '' });
+  const [formState, setFormState] = useState({ status: '', issues: '', shift: '', isIssue: '' });
   const [isError, setError] = useState();
   const [isIssue, setIsIssue] = useState(false);
   const location = useLocation();
@@ -36,27 +37,29 @@ const ServiceBookletEntryForm = () => {
     handleChange(e, formState, setFormState);
   };
   return (
-    <div>
+    <div className="form-container">
       <h1>{location.state && location.state.gantryType !== null ? location.state.gantryType : workplaceDetails.workplaceModel}</h1>
       <div>
         <form>
-          <div>
+          <div className="input-box">
             <label htmlFor="status">Status</label>
             <input disabled={formState.isIssue} onChange={handelChange} id="status" type="checkbox" />
           </div>
-          <div>
+          <div className="input-box">
             <label htmlFor="isIssue">Issuses</label>
             <input disabled={formState.status} onChange={handelChange} id="isIssue" type="checkbox" />
           </div>
           {formState.isIssue && (
-            <div>
+            <div className="input-box">
               <label htmlFor="issues">Issues </label>
               <textarea onChange={handelChange} id="issues" type="text" />
             </div>
           )}
+          <div className="input-box">
+            <input disabled={isSubmitFormEnabled(formState)} onClick={check} className="button" type="button" value="Dodaj" />
+          </div>
         </form>
       </div>
-      <button onClick={() => check()}>check</button>
       <div>{isError && <p>{isError}</p>}</div>
     </div>
   );

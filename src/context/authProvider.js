@@ -11,6 +11,7 @@ const AuthProvider = ({ children }) => {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
+    console.log('update auth context');
     setLoading(true);
     loginService
       .checkSession()

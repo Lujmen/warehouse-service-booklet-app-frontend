@@ -18,11 +18,11 @@ const LastEntriesTabel = (props) => {
         <tbody>
           {data.map((element) => (
             <tr>
-              <td>{formattedData(element.checkedAt)}</td>
-              <td>{element.shift}</td>
-              <td>{element.status !== '' ? 'X' : element.status}</td>
-              <td>{element.issues !== false ? element.issues : ''}</td>
-              <td>{element.user}</td>
+              <td data-cell="data">{formattedData(element.checkedAt)}</td>
+              <td data-cell="zmiana">{element.shift}</td>
+              <td data-cell="status">{element.status !== '' ? 'X' : element.status}</td>
+              <td data-cell="problem">{element.issues !== false ? element.issues : ''}</td>
+              <td data-cell="uzytkownik">{element.user}</td>
             </tr>
           ))}
         </tbody>

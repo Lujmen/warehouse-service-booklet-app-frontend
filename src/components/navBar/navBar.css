@@ -1,0 +1,83 @@
+
+.active{
+    background-color:rgb(24, 11, 202) ;
+    
+}
+nav{
+    
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 20rem;
+    min-height: 3.5rem;
+    width: 100%;
+    min-width: 900px;
+   
+    
+    background-color: navy;
+    /* tak zeby bylo non stop na gorze */
+    position: sticky;
+    top:0;
+    /*  */
+    font-weight: bold;
+    border-bottom:0.1rem solid white;
+}
+nav ul{
+    display:flex;   
+}
+nav ul li{
+    list-style: none;  
+}
+nav ul li a{
+    display: block;
+    text-decoration: none;
+    padding: 0.5rem;
+    margin: 0 1rem;
+    border-radius: 0.5rem;
+}
+nav ul li a:not(.active):hover{
+    background-color:rgb(24, 11, 202) ;
+}
+nav .menu{
+display: none;
+position: absolute;
+top:0.5rem;
+left:0.5rem;
+flex-direction: column;
+justify-content: space-between;
+width:2.25rem;
+height:2rem
+}
+nav .menu span{
+    height: 0.4rem;
+    width: 100%;
+    background-color: white;
+    border-radius: 0.5rem;
+}
+@media(max-width:480px){
+    nav .menu{
+        display: flex;
+    }
+    nav{
+        width: 100vw;
+        flex-direction: column;
+        align-items: start;
+    }
+    nav ul{
+        display: none;
+        flex-direction: column;
+        margin-top:3rem;
+        width:100%;
+        margin-bottom: 0.25rem;
+    }
+    nav ul.open{
+        display: flex;
+    }
+    nav ul li{
+        width: 100%;
+        margin-left: 0;
+        
+       
+    }
+
+}

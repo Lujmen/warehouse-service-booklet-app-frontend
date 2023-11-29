@@ -22,7 +22,7 @@ const ChamferingRangeEntriesForm = (props) => {
   };
 
   return (
-    <div>
+    <div className="chamfering-repotrs-form">
       <h1>Wybierza zakres dat</h1>
       <form
         onSubmit={(e) => {
@@ -39,10 +39,10 @@ const ChamferingRangeEntriesForm = (props) => {
           <input name="endDate" type="date" onChange={handleEndDate} value={formState.endDate} disabled={endDateBlocked} />
         </div>
         <div>
-          <input type="submit" name="Pokaz wpisy" value="wyszukaj" onClick={handleSubmitList} disabled={submitBlocked} />
+          <input className="submit-button" type="submit" name="Pokaz wpisy" value="wyszukaj" onClick={handleSubmitList} disabled={submitBlocked} />
         </div>
         <div>
-          <input type="submit" value="Pokaz czas" onClick={handleSubmitTime} disabled={submitBlocked} />
+          <input className="submit-button" type="submit" value="Pokaz czas" onClick={handleSubmitTime} disabled={submitBlocked} />
         </div>
       </form>
       {selectError && <p>{selectError}</p>}

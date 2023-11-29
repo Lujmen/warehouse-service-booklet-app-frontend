@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import getActiveUsers from '../../../service/getActiveusers';
 import ActiveUsersList from './subPages/activeUsersListPage/activeUsersList';
-import Nav from '../../../components/activeUsersPageNavBar/nav';
+import Nav from './components/nav';
 import { Outlet } from 'react-router-dom';
 
 const ActiveUsersPage = () => {

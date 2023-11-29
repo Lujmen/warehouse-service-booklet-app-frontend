@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
+import PaginationBar from '../../../../components/paginationBar/paginationBar';
+import { useEffect } from 'react';
 
 const ChamferinEntryList = (props) => {
-  const { list } = props;
-  console.log(list);
+  const { list, changePage, page } = props;
+
+  console.log(list.results);
   return (
     <div>
       <table>
@@ -15,7 +18,7 @@ const ChamferinEntryList = (props) => {
           </tr>
         </thead>
         <tbody>
-          {list.map((element) => (
+          {list.results.map((element) => (
             <tr>
               <th>{element.addDate}</th>
               <td>{element.shift}</td>
@@ -26,6 +29,7 @@ const ChamferinEntryList = (props) => {
           ))}
         </tbody>
       </table>
+      <PaginationBar setPage={changePage} page={page} totalPages={list.totalPages} />
     </div>
   );
 };

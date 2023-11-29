@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import GantryTypesService from '../../../service/gantryModelService';
 
 const GantryTypeList = () => {
@@ -13,19 +13,13 @@ const GantryTypeList = () => {
   if (isPending) {
     <h1>Loading...</h1>;
   } else {
-    return (
-      <div>
-        {gantryTypes?.map((type, i) => (
-          <ul key={i}>
-            <li>
-              <Link to="serviceBookletEntry" state={{ gantryType: type }}>
-                {type}
-              </Link>
-            </li>
-          </ul>
-        ))}
+    return gantryTypes?.map((type, i) => (
+      <div className="service-booklet-entry-link-item">
+        <NavLink to="serviceBookletEntry" state={{ gantryType: type }}>
+          {type}
+        </NavLink>
       </div>
-    );
+    ));
   }
 };
 
