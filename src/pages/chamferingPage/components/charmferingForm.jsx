@@ -4,6 +4,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 import handleChangeCharmferingForm from '../utils/handleChangeCharmferinfForm';
 import handleCharmferingFormSubmit from '../utils/handleCharmferingFormSubmit';
+import checkIsSubmitEnabled from '../utils/checkIsSubmitEnabled';
 
 const CharmferingForm = () => {
   const queryClient = useQueryClient();
@@ -37,8 +38,9 @@ const CharmferingForm = () => {
           <input id="timeOfChamfering" onChange={handleChange} value={formState.timeOfChamfering} type="number" />
         </div>
         <div className="input-box">
-          <input className="submit-button" type="submit" value="Dodaj" />
+          <input disabled={!checkIsSubmitEnabled(formState)} className="submit-button" type="submit" value="Dodaj" />
         </div>
+        <div className="error-box">{isError && isError}</div>
       </form>
     </div>
   );

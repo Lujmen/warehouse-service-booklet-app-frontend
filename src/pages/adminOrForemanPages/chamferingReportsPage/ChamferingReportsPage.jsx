@@ -7,7 +7,6 @@ import { getChamferingTime } from '../../../service/getChamferingTime';
 import { checkIfShouldBeDisabledForChamferingTime, checkIfShouldBeDisabledForChamferingList } from './utils/checkIfShouldBeDisabled';
 import getChamferingListByDate from '../../../service/getChamferingListByDate';
 import './chamferingReportsPage.css';
-import PaginationBar from '../../../components/paginationBar/paginationBar';
 
 const ChamferingReportsPage = () => {
   const [queryData, setQueryData] = useState({ key: '', page: '1' });

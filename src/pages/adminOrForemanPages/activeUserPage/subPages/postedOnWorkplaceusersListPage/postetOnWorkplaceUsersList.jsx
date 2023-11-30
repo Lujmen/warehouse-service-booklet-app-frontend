@@ -1,6 +1,9 @@
 import React from 'react';
 import getUsersWhosePostetOnWorkplace from '../../../../../service/getUsersWhosePostetOnWorkplace';
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
+import PostedOnWorkplaceUserComponent from './components/postedOnWorkplaceUserComponent';
+import kickOutUserFromWorkplace from '../../../../../service/kickOutUserFromWorkplace';
+import './postedOnWorkplaceUserList.css';
 
 const PostetOnWorkplaceUsersList = () => {
   const {
@@ -8,7 +11,14 @@ const PostetOnWorkplaceUsersList = () => {
     isError,
     error,
     isLoading,
+    refetch,
   } = useQuery({ queryKey: ['postedOnWorkplaceUsers'], queryFn: () => getUsersWhosePostetOnWorkplace() });
+
+  const { mutateAsync: kickOutFromWorkplace } = useMutation({
+    mutationFn: (userId) => kickOutUserFromWorkplace(userId),
+    onSuccess: () => refetch(),
+  });
+
   if (isError) {
     return (
       <div>
@@ -23,12 +33,12 @@ const PostetOnWorkplaceUsersList = () => {
     );
   } else {
     return (
-      <div>
+      <div className="posted-on-workplace-users-list">
         <ul>
           {postedOnWorkplaceUsers.map((element, id) => (
             <li key={id}>
               <div>
-                <p>{element.username}</p>
+                <PostedOnWorkplaceUserComponent props={element} kickOutFromWorkplace={kickOutFromWorkplace} />
               </div>
             </li>
           ))}

@@ -1,0 +1,15 @@
+ul.active-users-list  {
+    list-style: none;
+    align-items: center;
+}
+li.active-users-list-item  {
+    border: 1px solid white;
+    border-radius: 1rem;
+    background-color: navy;
+    margin-bottom: 1rem;   
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+    font-size: large;
+}
+
