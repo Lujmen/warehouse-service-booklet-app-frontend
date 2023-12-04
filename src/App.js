@@ -14,10 +14,12 @@ function App() {
     );
   } else {
     return (
-      <div className="App">
+      <div className="App fs-500">
         <NavBar />
-        {userDetails?.username && <h1 className="user-info">Uzytkownik: {userDetails.username}</h1>}
-        <Outlet />
+        {userDetails?.username && <p className="user-info">Uzytkownik: {userDetails.username}</p>}
+        <div className="container">
+          <Outlet />
+        </div>
       </div>
     );
   }

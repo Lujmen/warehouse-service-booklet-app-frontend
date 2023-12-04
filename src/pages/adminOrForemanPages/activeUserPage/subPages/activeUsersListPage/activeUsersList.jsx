@@ -20,7 +20,7 @@ const ActiveUsersList = (props) => {
     );
   } else {
     return (
-      <div>
+      <div className="active-users-list-container">
         <ul className="active-users-lis">
           {activeUsers.map((element, id) => (
             <li className="active-users-list-item" key={id}>

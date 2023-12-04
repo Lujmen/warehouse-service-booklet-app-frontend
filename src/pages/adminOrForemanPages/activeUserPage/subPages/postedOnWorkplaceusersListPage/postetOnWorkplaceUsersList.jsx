@@ -37,9 +37,7 @@ const PostetOnWorkplaceUsersList = () => {
         <ul>
           {postedOnWorkplaceUsers.map((element, id) => (
             <li key={id}>
-              <div>
-                <PostedOnWorkplaceUserComponent props={element} kickOutFromWorkplace={kickOutFromWorkplace} />
-              </div>
+              <PostedOnWorkplaceUserComponent props={element} kickOutFromWorkplace={kickOutFromWorkplace} />
             </li>
           ))}
         </ul>

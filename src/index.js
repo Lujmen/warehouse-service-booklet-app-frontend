@@ -18,6 +18,7 @@ import ActiveUsersPage from './pages/adminOrForemanPages/activeUserPage/activeUs
 import PostetOnWorkplaceUsersList from './pages/adminOrForemanPages/activeUserPage/subPages/postedOnWorkplaceusersListPage/postetOnWorkplaceUsersList';
 import ActiveUsersList from './pages/adminOrForemanPages/activeUserPage/subPages/activeUsersListPage/activeUsersList';
 import ChamferingReportsPage from './pages/adminOrForemanPages/chamferingReportsPage/ChamferingReportsPage';
+import { InfoPage } from './pages/infoPage/infoPage';
 
 const router = createBrowserRouter([
   {
@@ -26,13 +27,15 @@ const router = createBrowserRouter([
     children: [
       { path: 'login', element: <LoginPage /> },
       {
+        //auth router
         element: <AuthRequired />,
         children: [
           {
             path: 'serviceBooklet',
             element: <ServiceBookletPage />,
-            children: [{ path: 'serviceBookletEntry', element: <ServiceBookletEntryForm /> }],
+            children: [{ path: 'serviceBookletEntry/*', element: <ServiceBookletEntryForm /> }],
           },
+          { path: 'info', element: <InfoPage /> },
           //routes only for gantry
           { element: <GantryRequired />, children: [{ path: 'chamfering', element: <ChamferingPage /> }] },
           //routes only for foreman and admin

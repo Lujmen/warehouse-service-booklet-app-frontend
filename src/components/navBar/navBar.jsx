@@ -32,7 +32,7 @@ export const NavBar = () => {
           <ul className={menuOpen ? 'open' : ''}>
             {workplaceDetails.workplace !== '' && (
               <li>
-                <NavLink to="/" onClick={() => handleLogOut(navigate)}>
+                <NavLink className="link" to="/" onClick={() => handleLogOut(navigate)}>
                   Wyloguj
                 </NavLink>
               </li>
@@ -40,7 +40,9 @@ export const NavBar = () => {
 
             {navBarData.map((element, index) => (
               <li key={index}>
-                <NavLink to={element.to}>{element.name}</NavLink>
+                <NavLink className="link" to={element.to}>
+                  {element.name}
+                </NavLink>
               </li>
             ))}
           </ul>

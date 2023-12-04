@@ -15,7 +15,7 @@ const GantryTypeList = () => {
   } else {
     return gantryTypes?.map((type, i) => (
       <div className="service-booklet-entry-link-item">
-        <NavLink to="serviceBookletEntry" state={{ gantryType: type }}>
+        <NavLink className="link" to={`serviceBookletEntry/${type}`} state={{ gantryType: type }}>
           {type}
         </NavLink>
       </div>

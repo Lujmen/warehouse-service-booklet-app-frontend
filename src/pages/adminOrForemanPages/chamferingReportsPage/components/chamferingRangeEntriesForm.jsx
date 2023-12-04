@@ -22,30 +22,30 @@ const ChamferingRangeEntriesForm = (props) => {
   };
 
   return (
-    <div className="chamfering-repotrs-form">
-      <h1>Wybierza zakres dat</h1>
+    <div className="chamfering-repotrs-form-container">
+      <h1 className="fs-secondary-heading">Wybierza zakres dat</h1>
       <form
         onSubmit={(e) => {
           e.preventDefault();
           console.log('form submitting');
         }}
       >
-        <div>
+        <div className="input-box">
           <label htmlFor="startDate">Od: </label>
-          <input name="startDate" type="date" onChange={handelStartDate} value={formState.startDate} />
+          <input className="text-input" name="startDate" type="date" onChange={handelStartDate} value={formState.startDate} />
         </div>
-        <div>
+        <div className="input-box">
           <label htmlFor="endDate">Do: </label>
-          <input name="endDate" type="date" onChange={handleEndDate} value={formState.endDate} disabled={endDateBlocked} />
+          <input className="text-input" name="endDate" type="date" onChange={handleEndDate} value={formState.endDate} disabled={endDateBlocked} />
         </div>
-        <div>
-          <input className="submit-button" type="submit" name="Pokaz wpisy" value="wyszukaj" onClick={handleSubmitList} disabled={submitBlocked} />
+        <div className="input-box">
+          <input className="btn-primary" type="submit" name="Pokaz wpisy" value="wyszukaj" onClick={handleSubmitList} disabled={submitBlocked} />
         </div>
-        <div>
-          <input className="submit-button" type="submit" value="Pokaz czas" onClick={handleSubmitTime} disabled={submitBlocked} />
+        <div className="input-box">
+          <input className="btn-primary" type="submit" value="Pokaz czas" onClick={handleSubmitTime} disabled={submitBlocked} />
         </div>
       </form>
-      {selectError && <p>{selectError}</p>}
+      <div className="error-box">{selectError && <p>{selectError}</p>}</div>
     </div>
   );
 };

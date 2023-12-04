@@ -1,12 +1,13 @@
 .active-users-page-container{
+    margin: auto;
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
-    min-width: fit-content;
-    max-width: fit-content;
-
+    max-width:1200px;
+    min-height:500px;
+    border-radius: 0.5rem;
 }
-.active-users-page-header{
-   
-    margin: auto;
+.active-users-page-container h1{
+    margin-left: 1rem;
     margin-top: 1rem;
 }

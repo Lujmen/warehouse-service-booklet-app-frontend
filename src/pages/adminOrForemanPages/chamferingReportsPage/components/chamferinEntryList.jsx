@@ -1,14 +1,14 @@
-import React, { useMemo, useState } from 'react';
+import React from 'react';
+import formattedDate from '../../../../utils/formattedData';
 import PaginationBar from '../../../../components/paginationBar/paginationBar';
-import { useEffect } from 'react';
 
 const ChamferinEntryList = (props) => {
   const { list, changePage, page } = props;
 
   console.log(list.results);
   return (
-    <div>
-      <table>
+    <div className="chamfering-tabel">
+      <table className="">
         <thead>
           <tr>
             <th>Data</th> <th>Zamiana</th>
@@ -20,7 +20,7 @@ const ChamferinEntryList = (props) => {
         <tbody>
           {list.results.map((element) => (
             <tr>
-              <th>{element.addDate}</th>
+              <th>{formattedDate(element.adaDate)}</th>
               <td>{element.shift}</td>
               <td>{element.differenceFromPingink}</td>
               <td>{element.diffrentFromQC}</td>

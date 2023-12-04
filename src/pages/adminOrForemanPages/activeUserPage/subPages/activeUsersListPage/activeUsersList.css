@@ -1,11 +1,24 @@
+.active-users-list-container{
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50rem;
+    margin-bottom: 1rem; 
+}
+@media(max-width:390px){
+    .active-users-list-container{
+        width: 20rem;
+    }}
+
 ul.active-users-list  {
     list-style: none;
     align-items: center;
+    width: 70%;
 }
 li.active-users-list-item  {
     border: 1px solid white;
     border-radius: 1rem;
-    background-color: navy;
     margin-bottom: 1rem;   
     display: flex;
     justify-content: space-around;

@@ -37,7 +37,7 @@ const ServiceBookletEntryForm = () => {
     handleChange(e, formState, setFormState);
   };
   return (
-    <div className="form-container">
+    <div className="service-booklet-entry-form">
       <h1>{location.state && location.state.gantryType !== null ? location.state.gantryType : workplaceDetails.workplaceModel}</h1>
       <div>
         <form>
@@ -50,17 +50,17 @@ const ServiceBookletEntryForm = () => {
             <input disabled={formState.status} onChange={handelChange} id="isIssue" type="checkbox" />
           </div>
           {formState.isIssue && (
-            <div className="input-box">
-              <label htmlFor="issues">Issues </label>
-              <textarea onChange={handelChange} id="issues" type="text" />
+            <div className="input-box-issues">
+              <label htmlFor="issues">Issues</label>
+              <textarea className="text-input" onChange={handelChange} id="issues" type="text" />
             </div>
           )}
-          <div className="input-box">
-            <input disabled={isSubmitFormEnabled(formState)} onClick={check} className="button" type="button" value="Dodaj" />
+          <div className="button-input-box">
+            <input disabled={isSubmitFormEnabled(formState)} onClick={check} className="btn-primary" type="button" value="Dodaj" />
           </div>
         </form>
       </div>
-      <div>{isError && <p>{isError}</p>}</div>
+      <div className="error-box">{isError && <p>{isError}</p>}</div>
     </div>
   );
 };

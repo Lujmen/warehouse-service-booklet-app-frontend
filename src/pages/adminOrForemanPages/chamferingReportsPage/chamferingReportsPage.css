@@ -1,30 +1,79 @@
-div.chamfering-page-main-container{
+.chamfering-page-main-container{
+    margin: auto;
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
-    justify-content:center ;
+    max-width:1200px;
+    min-width: 390px;
+    min-height: 500px;
+    border-radius: 0.5rem;  
+  
 }
-/* chamfering form */
-div.chamfering-repotrs-form{
-    margin: auto;
-    max-width: 283px;
-    
+/* form */
+.chamfering-repotrs-form-container{
+
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.chamfering-repotrs-form-container .input-box{
+    margin-bottom: 1rem;
+}
+.chamfering-repotrs-form-container .input-box:first-child{
+    margin-top: 1rem;
+}
+.chamfering-repotrs-form-container input{
+    border-radius: .25rem;
+    padding: .25rem;
+}
+.chamfering-repotrs-form-container input[type="submit"]{
+    border: none;
+    display: flex;
+}
+.chamfering-repotrs-form-container input[type="submit"]:disabled{
+    background-color: gray;
+}
+.chamfering-repotrs-form-container input[type="submit"]:hover{
+    cursor: pointer;
+}
+.chamfering-repotrs-form-container .error-box p{
+    color: red;
+}
+/* chamfering time */
+.chamfering-time-container{
+
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
-div.chamfering-repotrs-form h1{
-    padding-top: 1rem;
-}
-div.chamfering-repotrs-form div{
-    padding-top: 1rem;
-}
-/* chamfering time display  */
-div.chamfering-time-box{
+/* table */
+.chamfering-tabel{
     display: flex;
-    flex-direction: column;
-    font-size: large;
-    
+    flex-direction: column;       
 }
-/* chamfering entries */
+.chamfering-tabel table{
+    padding-bottom: 1rem;
+     
+}
 
-/*Active users*/
+.chamfering-tabel th, .chamfering-tabel td{
+    background-color: var( --clr-primary-100);
+    padding:1rem;
+    text-align: center;   
+}
+
+
+
+@media(max-width:390px){
+    .chamfering-tabel table{
+        font-size: 0.70rem;
+    }
+    .chamfering-tabel th, .chamfering-tabel td{
+        padding:0.25rem;
+    }
+
+
+}

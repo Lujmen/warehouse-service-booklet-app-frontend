@@ -44,7 +44,7 @@ const ChamferingReportsPage = () => {
   };
 
   return (
-    <div className="chamfering-page-main-container">
+    <div className="chamfering-page-main-container bg-primary-100">
       <ChamferingRangeEntriesForm handleSubmit={submitData} />
       {queryData?.key === 'time' && chamferingTime && !isLoadingChamferingTime && !isErrorChamferingTime && (
         <ChamferinRangeEntriesTime time={chamferingTime} />

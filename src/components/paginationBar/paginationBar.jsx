@@ -18,12 +18,12 @@ const PaginationBar = (props) => {
   };
 
   return (
-    <nav className="pagination-nav">
+    <nav className="pagination-nav bg-primary-100">
       <button disabled={page === 1} onClick={prevPage}>
         Prev Page
       </button>
       <p>{page}</p>
-      <button disabled={page === totalPages} onClick={nextPage}>
+      <button disabled={page >= totalPages} onClick={nextPage}>
         Next Page
       </button>
     </nav>

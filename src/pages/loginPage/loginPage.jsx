@@ -26,23 +26,23 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="content-box">
-      <h1>Logowanie</h1>
+    <div className="login-form-container bg-primary-100">
+      <h1 className="fs-primary-heading">Logowanie</h1>
       <div>
         <form onSubmit={handleFormSubmit} action="">
           <div className="input-container">
             <label htmlFor="username">Username</label>
-            <input onChange={handleChange} id="username" type="text" />
+            <input className="text-input" onChange={handleChange} id="username" type="text" />
           </div>
           <div className="input-container">
             <label htmlFor="password">Login</label>
-            <input onChange={handleChange} id="password" type="text" />
+            <input className="text-input" onChange={handleChange} id="password" type="text" />
           </div>
           <div className="input-container">
             <label htmlFor="">Wybierz stanowisko:</label>
-            <select id="workplace" onChange={handleChange}>
+            <select className="text-input" id="workplace" onChange={handleChange}>
               {workplaceOptions.map((option) => (
-                <option key={option.value} value={option.value}>
+                <option className="text-input" key={option.value} value={option.value}>
                   {option.label}
                 </option>
               ))}
@@ -51,9 +51,9 @@ const LoginPage = () => {
           {formData.workplace === 'forklift' && !isLoading && (
             <div className="input-container">
               <label htmlFor="">Wybierz stanowisko:</label>
-              <select id="workplaceModel" onChange={handleChange}>
+              <select className="text-input" id="workplaceModel" onChange={handleChange}>
                 {forkliftModels.map((option) => (
-                  <option key={option} value={option}>
+                  <option className="text-input" key={option} value={option}>
                     {option}
                   </option>
                 ))}
@@ -61,7 +61,7 @@ const LoginPage = () => {
             </div>
           )}
           <div className="input-container">
-            <input className="submit-button" type="submit" name="Login" value="Zaloguj" />
+            <input className="btn-primary" type="submit" name="Login" value="Zaloguj" />
           </div>
         </form>
       </div>

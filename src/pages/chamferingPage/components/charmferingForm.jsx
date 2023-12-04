@@ -27,18 +27,18 @@ const CharmferingForm = () => {
       <form onSubmit={handleSubmit}>
         <div className="input-box">
           <label htmlFor="differenceFromPingink">Ilość mm różnicy długości do wyrownania 1 strona (od strony piankowania)</label>
-          <input id="differenceFromPingink" onChange={handleChange} value={formState.differenceFromPingink} type="number" />
+          <input className="text-input" id="differenceFromPingink" onChange={handleChange} value={formState.differenceFromPingink} type="number" />
         </div>
         <div className="input-box">
           <label htmlFor="diffrentFromQC">Ilość mm różnicy długości do wyrownania 2 strona (od strony qc)</label>
-          <input id="diffrentFromQC" onChange={handleChange} value={formState.diffrentFromQC} type="number" />
+          <input className="text-input" id="diffrentFromQC" onChange={handleChange} value={formState.diffrentFromQC} type="number" />
         </div>
         <div className="input-box">
           <label htmlFor="timeOfChamfering">czas fazowania rur</label>
-          <input id="timeOfChamfering" onChange={handleChange} value={formState.timeOfChamfering} type="number" />
+          <input className="text-input" id="timeOfChamfering" onChange={handleChange} value={formState.timeOfChamfering} type="number" />
         </div>
         <div className="input-box">
-          <input disabled={!checkIsSubmitEnabled(formState)} className="submit-button" type="submit" value="Dodaj" />
+          <input disabled={!checkIsSubmitEnabled(formState)} className="btn-primary button" type="submit" value="Dodaj" />
         </div>
         <div className="error-box">{isError && isError}</div>
       </form>

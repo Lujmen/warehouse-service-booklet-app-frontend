@@ -19,7 +19,7 @@ const CharmferingList = () => {
     return <h1>{error.message}</h1>;
   } else if (chamferingList) {
     return (
-      <div>
+      <div className="chamfering-tabel bg-primary-100">
         <table>
           <thead>
             <tr>

@@ -1,8 +1,3 @@
-
-.active{
-    background-color:rgb(24, 11, 202) ;
-    
-}
 nav{
     
     display:flex;
@@ -10,13 +5,10 @@ nav{
     align-items: center;
     max-height: 20rem;
     min-height: 3.5rem;
-    width: 100%;
-    min-width: 900px;
-   
-    
-    background-color: navy;
+    min-width: 100%;
     /* tak zeby bylo non stop na gorze */
     position: sticky;
+    background-color: var(--clr-primary-400);
     top:0;
     /*  */
     font-weight: bold;
@@ -46,7 +38,7 @@ left:0.5rem;
 flex-direction: column;
 justify-content: space-between;
 width:2.25rem;
-height:2rem
+height:2rem;
 }
 nav .menu span{
     height: 0.4rem;
@@ -54,7 +46,7 @@ nav .menu span{
     background-color: white;
     border-radius: 0.5rem;
 }
-@media(max-width:480px){
+@media(max-width:750px){
     nav .menu{
         display: flex;
     }

@@ -5,7 +5,7 @@ import './chamferinPage.css';
 
 const ChamferingPage = () => {
   return (
-    <div className="main-container">
+    <div className="chamfering-page-container bg-primary-100">
       <CharmferingForm />
       <CharmferingList />
     </div>

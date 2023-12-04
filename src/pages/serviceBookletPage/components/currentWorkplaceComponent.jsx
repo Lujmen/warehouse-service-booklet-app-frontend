@@ -29,7 +29,7 @@ const CurrentWorkplaceComponent = () => {
 
   if (error) {
     return (
-      <div className="message-box-container">
+      <div className="workplace-info">
         <div lassName="message-box">
           <h1>{error.message}</h1>
         </div>
@@ -39,7 +39,7 @@ const CurrentWorkplaceComponent = () => {
     return <h1>loading....</h1>;
   } else if (!lastEntry) {
     return (
-      <div className="message-box-container">
+      <div className="workplace-info">
         <div className="message-box">
           <h1>Nie udalo sie znelezc wpisu</h1>
         </div>
@@ -47,18 +47,30 @@ const CurrentWorkplaceComponent = () => {
     );
   } else {
     return (
-      <div className="message-box-container">
+      <div className="workplace-info">
         {lastEntry.length > 0 ? (
           lastEntry.map((element, id) => (
             <div key={id} className="message-box">
               <h1>{element.message}</h1>
-              <div className="button">{element.isPosted === true && <button onClick={() => handleLeave(element.id)}>zakoncz prace</button>}</div>
+              <div className="button">
+                {element.isPosted === true && (
+                  <button className="btn-primary" onClick={() => handleLeave(element.id)}>
+                    zakoncz prace
+                  </button>
+                )}
+              </div>
             </div>
           ))
         ) : (
           <div className="message-box">
             <h1>{lastEntry.message}</h1>
-            <div className="button"> {lastEntry.isPosted === true && <button onClick={() => handleLeave(lastEntry.id)}>zakoncz prace</button>}</div>
+            <div className="button">
+              {lastEntry.isPosted === true && (
+                <button className="btn-primary" onClick={() => handleLeave(lastEntry.id)}>
+                  zakoncz prace
+                </button>
+              )}
+            </div>
           </div>
         )}
       </div>

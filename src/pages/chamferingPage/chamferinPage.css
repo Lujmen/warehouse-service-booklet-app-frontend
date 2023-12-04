@@ -1,21 +1,78 @@
-div.chamfering-main-container{
+.chamfering-page-container{
+    margin: auto;
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
+    max-width:1200px;
+    min-width: 390px;
+    border-radius: 0.5rem;  
 }
-/* form */
-div.form-container{
+
+.chamfering-form-container{
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+
 
 }
-div.form-container form{
+.chamfering-form-container .input-box{
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    margin: auto;
+    margin-bottom: 1rem;
+    max-width: 500px;
 }
-div.form-container form .input-box{
+@media(max-width:390px){
+    .chamfering-form-container .input-box{
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
 }
-.error-box{
-    min-height: 1.5rem;
-    margin-left: 1rem;
-    color: red;
-    font-size: large;
+.chamfering-form-container .input-box input{
+    border: none;
+    padding: 0.5rem;
+    height: 2rem;
+    border-radius: 0.25rem;
+}
+.chamfering-form-container .input-box .button{
+    border: none;
+    border-radius: 0.25rem;
+    
+}
+.chamfering-form-container .input-box .button:hover{
+    cursor:pointer;
+}
+.chamfering-form-container .error-box{
+    height: 1rem;
+    display: flex;
+    justify-content: center;
+    color:red;
+    margin:auto;
+}
+.chamfering-tabel{
+    display: flex;
+    flex-direction: column;       
+}
+.chamfering-tabel table{
+    padding-bottom: 1rem;
+     
+}
+
+.chamfering-tabel th, .chamfering-tabel td{
+    background-color: var( --clr-primary-100);
+    padding:1rem;
+    text-align: center;   
+}
+
+
+
+@media(max-width:390px){
+    .chamfering-tabel table{
+        font-size: 0.70rem;
+    }
+    .chamfering-tabel th, .chamfering-tabel td{
+        padding:0.25rem;
+    }
+
 
 }

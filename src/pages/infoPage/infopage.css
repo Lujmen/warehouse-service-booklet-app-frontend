@@ -1,0 +1,91 @@
+.info-page-container{
+    margin: auto;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    max-width:1200px;
+    min-width: 390px;
+    border-radius: 0.5rem;
+   
+}
+.info-page-container h1{margin-left: 1rem;}
+/* form container */
+.add-info-form-container{
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.add-info-form-container .input-box{
+    width: 100%;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+.add-info-form-container .input-box label, .add-info-form-container .input-box input{
+    min-width: 30rem;
+}
+@media(max-width: 390px){
+    .add-info-form-container .input-box label, .add-info-form-container .input-box input{
+        min-width:20rem;
+    }
+}
+.add-info-form-container .input-box textarea{
+    margin-top: 1rem;
+    min-height: 10rem;
+    border-radius: 0.25rem;
+    resize: none;
+}
+.add-info-form-container input[type="file"]{
+    display: none;
+}
+.add-info-form-container .file-button{
+    border-radius: 0.25rem;
+    text-align: center;
+}
+.add-info-form-container .file-button:hover{
+   cursor: pointer;
+}
+.add-info-form-container .button{
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    width: 8rem;
+}
+.add-info-form-container .button:hover{
+    cursor: pointer;
+}
+/* list container */
+.list-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 1rem;
+}
+/* list item contaimer */
+.list-item-container{
+    display: flex;
+    flex-direction: column;
+    border-top:solid 1px white ;
+    padding-bottom: 1rem;
+}
+.list-item-container .added-by{
+    font-weight: bold;
+    padding-bottom: 0.5rem;
+}
+.list-item-container .content{
+    padding-bottom: 0.5rem;
+}
+.list-item-container button{
+    border: none;
+    width: 8rem;
+    border-radius: .25rem;
+}
+.list-item-container img{
+    border-radius: 0.25rem;
+    
+}
+
+  
+
+

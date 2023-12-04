@@ -1,180 +1,116 @@
-div.main-container{
-    display: flex;
-    flex-direction:column;
-    min-width: 800px;
-}
-/* messages about workplace */
-div.message-box-container{
-    margin-left: 1rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    min-height: 5rem;
-}
-div.message-box{
-    min-height: 5rem;
-    min-width: 480px;
-}
-@media(max-width: 900px){
-    div.message-box{
-        min-height: 8rem;
-    }
-}
-div.message-box-container div.button {
-    min-height: 2rem;
-
-}
-div.message-box-container div.button button{
-    min-height: 2rem;
-    min-width: 8rem;
-    font-weight: bold;
-    color: black;
-    border: none;
-    border-radius: 0.5rem;
-}
-div.message-box-container div.button button:hover{
-    color: gray;
-    cursor: pointer;
-}
-/* Entry container  */
-.service-booklet-entry-box{
-    display: flex;
-    min-height: 20rem;  
-    flex-direction: row;
-}
-@media(max-width: 700px){
-    .service-booklet-entry-box{
-       
-        flex-direction: column;
-    }
-}
-
-/*  */
-/* Links  */
-div.service-booklet-entry-link-box{
-    margin-left: 1rem; 
-}
-
-div.service-booklet-entry-link-item{
-    display: flex;
-    max-width: 8rem;
-    min-width:10rem;
-
-    min-height: 2rem;
-    text-align: center;
-    justify-content: center;
-    text-decoration: none;
-    margin-top: 2rem;
-}
-div.service-booklet-entry-link-item a{
-    text-decoration: none;
-    padding: 0.75rem;
-    margin: auto;
-    min-width: 100%;
-    border: 1px solid white;
-    border-radius: 1rem;
-}div.service-booklet-entry-link-item a:hover{
-    background-color: navy;
-}
-
-/*  */
-/*  entry from*/
-div.form-container{
-    background-color: navy;
+.service-booklet-page-container{
     display: flex;
     flex-direction: column;
-    border-radius: 1rem;
+    justify-content: center;
+    margin:auto;
+    max-width:1200px;
+    min-width: 390px;
     margin-top: 1rem;
-    margin-left: 5rem;
-    min-height: 15rem;
-    min-width: 25rem;
-    max-width: 25rem;
-    margin-bottom: 1rem;
-}
-@media(max-width: 700px){
-    div.form-container{
-        margin-left: 1rem
-    }
-}
-div.form-container form{
-    padding: 0;
-}
-div.form-container h1{
-    margin-left: 1rem;
-
-}
-div.input-box{
-    min-height: 3rem;
-    margin-left: 1rem;
-    display: flex;
-    align-items: center;   
-}
-div.input-box:nth-child(1){
-    margin-top: 0;
-
-}
-div.input-box:nth-child(3){
-    margin-top: 0;
-
-}
-div.input-box:nth-child(4){
-    margin-top: 0;
-
-}
-div.input-box label{
-    margin-right: 1rem;
-    min-width: 5rem;
-}
-div.input-box textarea{
-    color: black;
-}
-input.button{
-    min-height: 2rem;
-    min-width: 8rem;
-    color: black;
-    border: none;
+    padding:1rem;
     border-radius: 0.5rem;
 }
-input.button:hover{
-    cursor: pointer;
-    color: gray;
+.workplace-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-input.button:disabled{
-    cursor: default;
-    color: black;
-   
+.workplace-info .message-box{
+    margin-top: 1rem;
+    height: 5rem;
 }
-/*  last entrie tabel*/
-table{
-    /* border-collapse: collapse; */
-    margin-top: 2rem;
-    background-color: navy;
-    margin:auto;
-    border-radius: 1rem;
-    padding: 1rem;
-    min-width: 40rem;
-    max-width: 700px;
-    
+.workplace-info .message-box button{
+    margin-top: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    width:8rem;
+    height: 2rem;
 }
-th,td{
-    background: blue;
-    padding: 0.4rem;
+.workplace-info .message-box button:hover{
+  cursor: pointer;
+}
+
+@media(max-width:450px){
+    .workplace-info .message-box button{
+        margin-top:0;
+    }
+}
+.service-booklet-entry-link-item{
+    display: flex;
+    justify-content: space-around;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    height: 2rem;
+    width: 8rem;
     text-align: center;
-    border-radius: 0.4rem;
-    
 }
 
-
-
-
-
-
-
-
+.service-booklet-entry-link-item a{
+    display: flex;
+    flex-direction:column;
+    width: 8rem;
+    line-height: 2rem;  
+    border-radius: 0.5rem;
+}
+/* entry form  */
+.service-booklet-entry-form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    max-width: 10rem;
+}
+.service-booklet-entry-form .input-box{
+    display: flex;
+    justify-content: flex-start;
     
-
-    
-   
-    
-    
-
+    margin-top: 1rem;
+}
+.service-booklet-entry-form .input-box label{
+    width: 8rem;  
+}
+.service-booklet-entry-form .input-box-issues{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border:1px solid white;
+    margin-top: 1rem;
+    width:20rem
+}
+.service-booklet-entry-form .input-box-issues textarea{
+   width:100%;
+   height: 5rem;
+   resize: none;
+}
+.service-booklet-entry-form .button-input-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border: none;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+}
+.service-booklet-entry-form .button-input-box .btn-primary{
+    border: none;
+    width: 8rem;
+    border-radius: 0.25rem;
+}
+.service-booklet-entry-form .button-input-box .btn-primary{
+    border: none;
+    width: 8rem;
+    border-radius: 0.25rem;
+}
+.service-booklet-entry-form .button-input-box .btn-primary:disabled{
+    border: none;
+    width: 8rem;
+    border-radius: 0.25rem;
+    background-color: gray;
+}
+.service-booklet-entry-form .error-box{
+    margin-top: 1rem;
+    display: flex;
+    min-width: 370px;
+}
+.service-booklet-entry-form .error-box p{
+    display: flex; 
+    color: red;
+}
 

@@ -1,20 +1,113 @@
+:root{
+  --clr-primary-400:#305099;
+  --clr-primary-100:#3959BA ;
+  --clr-font:white;
+  --clr-input-font-color: black;
+  --clr-button:white;
+  --clr-disabled-button:grey;
+  --clr-active:#2F3C4F;
+
+  --fw-regular:400;
+  --fw-semi-bold:500;
+  --fw-bold:700;
+
+  --fs-300:.8125rem ;
+  --fs-400:.875rem;
+  --fs-500: 1rem;
+  --fs-600: 1.875rem;
+  --fs-700: 2.5rem;
+  --fs-body:var(--fs-400);
+  --fs-primary-heading:var(--fs-600);
+  --fs-secondary-heading:var(--fs-500);
+  --fs-nav:var(--fs-500);
+  --fs-button:var(--fs-300);
+}
+@media(min-width: 50em){
+  :root{
+    --fs-700:3.5rem;
+    --fs-600: 2.5rem;
+    --fs-body:var(--fs-500);
+    --fs-nav:var(--fs-500);
+    --fs-primary-heading:var(--fs-700);
+    --fs-secondary-heading:var(--fs-600);
+    
+  }
+}
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-   
+    font: inherit;
+    font-family: 'Poppins', sans-serif;
     color: white;
-   
+}
+html:focus-within{
+  scroll-behavior:smooth;
 }
 body{
-    background-color:rgb(24, 11, 202) ;
-    
-    
-    
+  height: 100%;
+  line-height: 1.5;
+  background-color:var( --clr-primary-400)
+}
+img,picture,svg{
+  max-width: 100%;
+}
+.text-primary{
+  color:var(--clr-font);
+}
+.fs-primary-heading {
+  font-size: var(--fs-primary-heading);
+}
+.fs-secondary-heading {
+  font-size: var(--fs-secondary-heading);
+}
+.text-input{
+  color:var( --clr-input-font-color)
+}
+.bg-primary-400{
+  background-color:var(--clr-primary-400)
+}
+.bg-primary-100{
+  background-color:var(--clr-primary-100)
+}
+.btn-primary{
+  color: var(--clr-input-font-color);
+  background-color: var(--clr-button);
+}
+.btn-disabled{
+  color: var(--clr-input-font-color);
+  background-color: var(--clr-disabled-button);
+}
+.link{
+  text-decoration: none;
+  color:var(--clr-font);
+  background-color:var(--clr-primary-400) ;
+}
+.link.active{
+  color:var(--clr-font);
+  background-color:var(--clr-active) ;
+}
+.link:not(.active):hover{
+  color:var(--clr-font);
+  background-color:var(--clr-primary-100) ;
 
 }
-@media (max-width: 400px) {
-    body {
-      font-size: 9pt;
-    }
-  }
+.fs-heading{
+  font-size: var(--fs-primary-heading);
+}
+.fs-300{
+  font-size: var(--fs-300);
+}
+.fs-400{
+  font-size: var(--fs-400);
+}
+.fs-500{
+  font-size: var(--fs-500);
+}
+.fs-600{
+  font-size: var(--fs-600);
+}
+.fs-700{
+  font-size: var(--fs-700);
+}
+

@@ -1,41 +1,32 @@
-.posted-on-workplace-users-list ul {
-    list-style: none;
-    align-items: center;
-}
-.posted-on-workplace-users-list  li{
-    border: 1px solid white;
-    border-radius: 1rem;
-    background-color: navy;
-    margin-bottom: 1rem;   
-}
-@media(max-width: 800px){
-    .posted-on-workplace-users-list ul{
-        min-width: fit-content;
-        max-width: fit-content;
-        
-    }
-}
-
-.posted-on-workplace-users-list div.list-item{
+.posted-on-workplace-users-list{
     display: flex;
-    justify-content: space-around;
-    padding: 1rem;
-    font-size: large;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50rem;
+    margin-bottom: 1rem; 
 }
-div.list-item .item-detail{
-    min-width:4rem;
-    text-align: center;
-}
-
-div.list-item button{
-    color:black;
-    padding: 0.40rem;
-    border: none;
-    border-radius: 0.5rem;
-}
-div.list-item button:hover{
-    cursor: pointer;
-    background-color: lightgray;
-
-  
-}
+@media(max-width:390px){
+    .posted-on-workplace-users-list{
+        width: 20rem;
+    }}
+    .posted-on-workplace-users-list ul{
+        list-style: none;
+    }
+    .posted-on-workplace-users-list li{
+        border: 1px solid white;
+        border-radius: 1rem;
+        margin-bottom: 1rem;
+    }
+    .posted-on-workplace-users-list .list-item{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding:0.9rem;
+    }
+    .posted-on-workplace-users-list button{
+        border: none;
+        padding: 0.20rem;
+        border-radius: .25rem;
+    }

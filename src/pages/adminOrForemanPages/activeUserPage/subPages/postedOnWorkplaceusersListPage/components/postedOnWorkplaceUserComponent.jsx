@@ -10,7 +10,9 @@ const PostedOnWorkplaceUserComponent = ({ props, kickOutFromWorkplace }) => {
       <div className="item-detail">{workplace}</div>
       <div className="item-detail">{workplaceModel && workplaceModel}</div>
       <div>
-        <button onClick={() => kickOutFromWorkplace(_id)}>Wypisz</button>
+        <button className="btn-primary" onClick={() => kickOutFromWorkplace(_id)}>
+          Wypisz
+        </button>
       </div>
     </div>
   );

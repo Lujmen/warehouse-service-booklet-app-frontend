@@ -1,20 +1,12 @@
 .App{
     height: 100%;
-    width: 100vw;
-    background-color:rgb(24, 11, 202) ;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 100%;  
 }
-@media(max-width:800px){
-    .App{
-        display: block;
-    }
+.App .user-info{
+    margin-top: 1rem;
+    margin-left: 1rem;
+    font-weight: bold;
+   
 }
-h1.user-info{
-    padding: 0.5rem;
-    border: 0.1rem solid white;
-    border-radius: 1rem;
-    max-width: 30rem;
 
-}
+

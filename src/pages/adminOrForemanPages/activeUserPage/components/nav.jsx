@@ -6,10 +6,14 @@ const Nav = () => {
   return (
     <div className="active-users-nav">
       <div className="nav-item">
-        <NavLink to="./posted">Wpisani na stanowisko</NavLink>
+        <NavLink className="link" to="./posted">
+          Wpisani na stanowisko
+        </NavLink>
       </div>
       <div className="nav-item">
-        <NavLink to="./active">Zalogowani</NavLink>
+        <NavLink className="link" to="./active">
+          Zalogowani
+        </NavLink>
       </div>
     </div>
   );
