@@ -24,22 +24,17 @@ const loginService = {
   },
   logout: async () => {
     try {
-      const response = await fetch(process.env.REACT_APP_BASE_API_URL + 'auth/logout', {
+      await fetch(process.env.REACT_APP_BASE_API_URL + 'auth/logout', {
         method: 'GET',
         credentials: 'include',
-      })
-        .then((res) => {
-          if (res.ok) {
-            document.cookie = 'connect.sid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-            return res.json();
-          } else {
-            throw new Error(res);
-          }
-        })
-        .then((data) => {
-          console.log(data);
-        });
-      console.log(response);
+      }).then((res) => {
+        if (res.ok) {
+          document.cookie = 'connect.sid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+          return res.json();
+        } else {
+          throw new Error(res);
+        }
+      });
     } catch (error) {
       throw error;
     }
@@ -52,15 +47,12 @@ const loginService = {
       });
 
       if (response.ok) {
-        console.log('Dobra sesja');
         const data = await response.json();
         return data;
       } else {
-        console.log('Zla sesja');
         throw new Error('No one was logged in');
       }
     } catch (error) {
-      console.error(error);
       throw new Error('Error during session check');
     }
   },

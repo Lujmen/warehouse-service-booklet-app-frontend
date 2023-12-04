@@ -1,6 +1,5 @@
 import React from 'react';
 import getCurrentWeekServiceBookletEntries from '../../../service/getCurrentWeekServiceBookletEntries';
-import { useAuth } from '../../../context/authProvider';
 import { useQuery } from '@tanstack/react-query';
 import LastEntriesTabel from './lastEntriesTabel';
 

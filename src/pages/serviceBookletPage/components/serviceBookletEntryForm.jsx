@@ -4,8 +4,7 @@ import { handleChange } from '../utils/handleChangeForm';
 import { handeSubmitForm } from '../utils/handleSubmitForm';
 import { useAuth } from '../../../context/authProvider';
 import { useQueryClient } from '@tanstack/react-query';
-import { QueryCache } from '@tanstack/react-query';
-import { ifSbumitFormEnabled, isSubmitFormEnabled } from '../utils/isSubmitFormEnabled';
+import { isSubmitFormEnabled } from '../utils/isSubmitFormEnabled';
 
 const ServiceBookletEntryForm = () => {
   const queryClient = useQueryClient();
@@ -13,10 +12,10 @@ const ServiceBookletEntryForm = () => {
 
   const [formState, setFormState] = useState({ status: '', issues: '', shift: '', isIssue: '' });
   const [isError, setError] = useState();
-  const [isIssue, setIsIssue] = useState(false);
+  const [isSubmiting, setIsSubmiting] = useState();
   const location = useLocation();
 
-  const check = async () => {
+  const handleSubmit = async () => {
     const additionalData = {
       details:
         location.state && location.state.gantryType !== null
@@ -25,16 +24,12 @@ const ServiceBookletEntryForm = () => {
     };
     try {
       setError('');
-      await handeSubmitForm(formState, additionalData.details).then(() => {
+      await handeSubmitForm(formState, additionalData.details, setIsSubmiting).then(() => {
         queryClient.invalidateQueries({ queryKey: ['lastEntry'] });
       });
     } catch (error) {
-      console.log('how to cathc there');
       setError(error);
     }
-  };
-  const handelChange = (e) => {
-    handleChange(e, formState, setFormState);
   };
   return (
     <div className="service-booklet-entry-form">
@@ -43,20 +38,26 @@ const ServiceBookletEntryForm = () => {
         <form>
           <div className="input-box">
             <label htmlFor="status">Status</label>
-            <input disabled={formState.isIssue} onChange={handelChange} id="status" type="checkbox" />
+            <input disabled={formState.isIssue} onChange={(e) => handleChange(e, formState, setFormState)} id="status" type="checkbox" />
           </div>
           <div className="input-box">
             <label htmlFor="isIssue">Issuses</label>
-            <input disabled={formState.status} onChange={handelChange} id="isIssue" type="checkbox" />
+            <input disabled={formState.status} onChange={(e) => handleChange(e, formState, setFormState)} id="isIssue" type="checkbox" />
           </div>
           {formState.isIssue && (
             <div className="input-box-issues">
               <label htmlFor="issues">Issues</label>
-              <textarea className="text-input" onChange={handelChange} id="issues" type="text" />
+              <textarea className="text-input" onChange={(e) => handleChange(e, formState, setFormState)} id="issues" type="text" />
             </div>
           )}
           <div className="button-input-box">
-            <input disabled={isSubmitFormEnabled(formState)} onClick={check} className="btn-primary" type="button" value="Dodaj" />
+            <input
+              disabled={isSubmitFormEnabled(formState) || isSubmiting}
+              onClick={handleSubmit}
+              className="btn-primary"
+              type="button"
+              value="Dodaj"
+            />
           </div>
         </form>
       </div>

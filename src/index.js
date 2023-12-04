@@ -19,6 +19,7 @@ import PostetOnWorkplaceUsersList from './pages/adminOrForemanPages/activeUserPa
 import ActiveUsersList from './pages/adminOrForemanPages/activeUserPage/subPages/activeUsersListPage/activeUsersList';
 import ChamferingReportsPage from './pages/adminOrForemanPages/chamferingReportsPage/ChamferingReportsPage';
 import { InfoPage } from './pages/infoPage/infoPage';
+import HomePage from './pages/homePage/homePage';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       { path: 'login', element: <LoginPage /> },
+      { path: 'home', element: <HomePage /> },
       {
         //auth router
         element: <AuthRequired />,
@@ -66,13 +68,13 @@ const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <AuthProvider>
-      <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
-        <ReactQueryDevtools />
-      </QueryClientProvider>
-    </AuthProvider>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <AuthProvider>
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+      <ReactQueryDevtools />
+    </QueryClientProvider>
+  </AuthProvider>
+  // </React.StrictMode>
 );
 reportWebVitals();

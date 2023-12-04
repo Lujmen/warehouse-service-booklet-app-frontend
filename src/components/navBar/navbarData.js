@@ -1,5 +1,9 @@
 const forForemanOrAdmin = [
   {
+    to: '/home',
+    name: 'Strona Domowa',
+  },
+  {
     to: '/activeUsers',
     name: 'Aktywni uzytkownicy',
   },
@@ -10,7 +14,7 @@ const forForemanOrAdmin = [
 ];
 const forUsersPostedOnForklift = [
   {
-    to: '',
+    to: '/home',
     name: 'Strona Domowa',
   },
 
@@ -25,7 +29,7 @@ const forUsersPostedOnForklift = [
 ];
 const forUsersPostedOnGantry = [
   {
-    to: '/',
+    to: '/home',
     name: 'Strona Domowa',
   },
   {
@@ -47,7 +51,7 @@ const forNoPosted = [
     name: 'Zaloguj',
   },
   {
-    to: '/',
+    to: '/home',
     name: 'Strona Domowa',
   },
   {

@@ -1,9 +1,16 @@
 import postInfo from '../../../service/postInfo';
 
-export const handleSubmit = async (e, file, info, queryClient) => {
+export const handleSubmit = async (e, file, info, queryClient, setIsSubmiting, setError) => {
+  setError(false);
+  setIsSubmiting(true);
   e.preventDefault();
-  const dataObj = { file, info };
-  const result = await postInfo(dataObj);
-  queryClient.invalidateQueries({ queryKey: ['infos'] });
-  console.log(result);
+  try {
+    const dataObj = { file, info };
+    await postInfo(dataObj);
+    await queryClient.invalidateQueries({ queryKey: ['infos'] });
+    setIsSubmiting(false);
+  } catch (error) {
+    setError(error);
+    setIsSubmiting(false);
+  }
 };

@@ -55,6 +55,10 @@
 .add-info-form-container .button:hover{
     cursor: pointer;
 }
+.add-info-form-container .button:disabled{
+
+    background-color: gray;
+}
 /* list container */
 .list-container{
     display: flex;

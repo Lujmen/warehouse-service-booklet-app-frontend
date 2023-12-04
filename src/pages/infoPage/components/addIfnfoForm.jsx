@@ -7,11 +7,13 @@ import { handleSubmit } from '../utils/handleSubmit';
 const AddIfnfoForm = () => {
   const [file, setFile] = useState();
   const [info, setInfo] = useState();
+  const [error, setError] = useState();
+  const [isSubmiting, setIsSubmiting] = useState(false);
   const queryClient = useQueryClient();
 
   return (
     <div className="add-info-form-container">
-      <form onSubmit={(e) => handleSubmit(e, file, info, queryClient)}>
+      <form onSubmit={(e) => handleSubmit(e, file, info, queryClient, setIsSubmiting, setError)}>
         <div className="input-box">
           <textarea className="text-input" onChange={(e) => handleChangeInput(e, setInfo)} type="text" name="info" id="info" />
         </div>
@@ -22,9 +24,10 @@ const AddIfnfoForm = () => {
           <input id="photo" type="file" accept="image/*" onChange={(e) => handleChangeImage(e, setFile)} />
         </div>
         <div className="input-box-button">
-          <input className="button btn-primary" type="submit" value="Opublikuj" />
+          <input disabled={isSubmiting} className="button btn-primary" type="submit" value="Opublikuj" />
         </div>
       </form>
+      <div>{error && <p>{error}</p>}</div>
     </div>
   );
 };

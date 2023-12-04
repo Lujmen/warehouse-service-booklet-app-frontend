@@ -37,7 +37,6 @@ const ChamferingReportsPage = () => {
     retry: false,
     cacheTime: 0,
   });
-  console.log('is this component rerendering ChamferingReportsPage');
 
   const submitData = (data) => {
     setQueryData({ ...queryData, key: data.key, endDate: data.endDate, startDate: data.startDate });

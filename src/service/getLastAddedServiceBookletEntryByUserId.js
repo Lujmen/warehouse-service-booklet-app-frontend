@@ -4,9 +4,8 @@ export const getLastAddedServiceBookletEntryByUserId = async () => {
       method: 'GET',
       credentials: 'include',
     });
-    console.log('WHYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY');
-
     if (!response.ok) {
+      console.log(response.status);
       console.log(response);
 
       throw response.json();

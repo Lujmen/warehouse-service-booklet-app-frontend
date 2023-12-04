@@ -10,35 +10,49 @@ const CharmferingForm = () => {
   const queryClient = useQueryClient();
   const [formState, setFormState] = useState({ differenceFromPingink: '', diffrentFromQC: '', timeOfChamfering: '' });
   const [isError, setError] = useState();
-  const [isSucces, setSucces] = useState(false);
+  const [isSubmiting, setIsSubmiting] = useState(false);
 
   const handleSubmit = async (e) => {
-    await handleCharmferingFormSubmit(formState, setError, setSucces, e, setFormState)
+    await handleCharmferingFormSubmit(formState, setError, setIsSubmiting, e, setFormState)
       .then(() => queryClient.invalidateQueries(['charmferingList']))
       .catch((err) => {});
   };
-  const handleChange = (event) => {
-    handleChangeCharmferingForm(event, formState, setFormState);
-  };
-
   return (
     <div className="chamfering-form-container">
       {/* dropdown to choose pipe */}
       <form onSubmit={handleSubmit}>
         <div className="input-box">
           <label htmlFor="differenceFromPingink">Ilość mm różnicy długości do wyrownania 1 strona (od strony piankowania)</label>
-          <input className="text-input" id="differenceFromPingink" onChange={handleChange} value={formState.differenceFromPingink} type="number" />
+          <input
+            className="text-input"
+            id="differenceFromPingink"
+            onChange={(e) => handleChangeCharmferingForm(e, formState, setFormState)}
+            value={formState.differenceFromPingink}
+            type="number"
+          />
         </div>
         <div className="input-box">
           <label htmlFor="diffrentFromQC">Ilość mm różnicy długości do wyrownania 2 strona (od strony qc)</label>
-          <input className="text-input" id="diffrentFromQC" onChange={handleChange} value={formState.diffrentFromQC} type="number" />
+          <input
+            className="text-input"
+            id="diffrentFromQC"
+            onChange={(e) => handleChangeCharmferingForm(e, formState, setFormState)}
+            value={formState.diffrentFromQC}
+            type="number"
+          />
         </div>
         <div className="input-box">
           <label htmlFor="timeOfChamfering">czas fazowania rur</label>
-          <input className="text-input" id="timeOfChamfering" onChange={handleChange} value={formState.timeOfChamfering} type="number" />
+          <input
+            className="text-input"
+            id="timeOfChamfering"
+            onChange={(e) => handleChangeCharmferingForm(e, formState, setFormState)}
+            value={formState.timeOfChamfering}
+            type="number"
+          />
         </div>
         <div className="input-box">
-          <input disabled={!checkIsSubmitEnabled(formState)} className="btn-primary button" type="submit" value="Dodaj" />
+          <input disabled={!checkIsSubmitEnabled(formState) || isSubmiting} className="btn-primary button" type="submit" value="Dodaj" />
         </div>
         <div className="error-box">{isError && isError}</div>
       </form>

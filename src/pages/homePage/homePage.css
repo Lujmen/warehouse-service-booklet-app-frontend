@@ -1,0 +1,16 @@
+.curent-color{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    
+}
+.color-square{
+    margin-left: 1rem;
+    height: 2rem;
+    width:2rem;
+}
+#white{
+    background-color: white;
+}

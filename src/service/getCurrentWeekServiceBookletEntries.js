@@ -1,5 +1,3 @@
-import React from 'react';
-
 const getCurrentWeekServiceBookletEntries = async (data) => {
   console.log('getCurrentWeekServiceBookletEntries');
   const result = await fetch(process.env.REACT_APP_BASE_API_URL + 'serviceBooklet/getAllEntriesFromCurrentWeek', {

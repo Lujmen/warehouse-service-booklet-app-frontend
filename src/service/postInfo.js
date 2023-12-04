@@ -1,8 +1,4 @@
-import { json } from 'react-router-dom';
-
 const postInfo = async (info) => {
-  console.log('hejka');
-  console.log(info);
   try {
     const response = await fetch(process.env.REACT_APP_BASE_API_URL + `info/add`, {
       method: 'POST',

@@ -30,17 +30,28 @@
 }
 .chamfering-form-container .input-box input{
     border: none;
+    display: flex;
+    
+    text-align: center;
+    justify-content: center;
     padding: 0.5rem;
     height: 2rem;
     border-radius: 0.25rem;
 }
 .chamfering-form-container .input-box .button{
+    display: flex;
+    vertical-align: middle;
+    text-align: center;
     border: none;
-    border-radius: 0.25rem;
-    
+    padding: 0;
+    border-radius: 0.25rem; 
 }
+
 .chamfering-form-container .input-box .button:hover{
     cursor:pointer;
+}
+.chamfering-form-container .input-box .button:disabled{
+    background-color: gray;
 }
 .chamfering-form-container .error-box{
     height: 1rem;
