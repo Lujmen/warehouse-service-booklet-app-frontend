@@ -13,6 +13,7 @@
 .add-info-form-container{
   
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -58,6 +59,13 @@
 .add-info-form-container .button:disabled{
 
     background-color: gray;
+}
+.add-info-form-container .error-box{
+    height:1rem;
+}
+.add-info-form-container .error-box p{
+    height:1rem;
+    color:red
 }
 /* list container */
 .list-container{

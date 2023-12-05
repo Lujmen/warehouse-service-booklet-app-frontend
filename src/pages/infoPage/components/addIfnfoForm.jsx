@@ -3,6 +3,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import { handleChangeInput } from '../utils/handleChangeInput';
 import { handleChangeImage } from '../utils/handleChangeImage';
 import { handleSubmit } from '../utils/handleSubmit';
+import { checkIsSubmitFormEnabled } from '../utils/checkIsubmitFormEnabled';
 
 const AddIfnfoForm = () => {
   const [file, setFile] = useState();
@@ -21,13 +22,13 @@ const AddIfnfoForm = () => {
           <label className="file-button btn-primary" htmlFor="photo">
             Dodaj zdjęcie
           </label>
-          <input id="photo" type="file" accept="image/*" onChange={(e) => handleChangeImage(e, setFile)} />
+          <input id="photo" type="file" accept="image/*" onChange={(e) => handleChangeImage(e, setFile, setError)} />
         </div>
         <div className="input-box-button">
-          <input disabled={isSubmiting} className="button btn-primary" type="submit" value="Opublikuj" />
+          <input disabled={isSubmiting || !checkIsSubmitFormEnabled(info)} className="button btn-primary" type="submit" value="Opublikuj" />
         </div>
       </form>
-      <div>{error && <p>{error}</p>}</div>
+      <div className="error-box">{error && <p>{error}</p>}</div>
     </div>
   );
 };

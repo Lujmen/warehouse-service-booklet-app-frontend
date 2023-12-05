@@ -4,6 +4,7 @@ import { useMutation, useQuery } from '@tanstack/react-query';
 import PostedOnWorkplaceUserComponent from './components/postedOnWorkplaceUserComponent';
 import kickOutUserFromWorkplace from '../../../../../service/kickOutUserFromWorkplace';
 import './postedOnWorkplaceUserList.css';
+import LoadingSpinner from '../../../../../components/loadingSpinner/loadingSpinner';
 
 const PostetOnWorkplaceUsersList = () => {
   const {
@@ -28,7 +29,9 @@ const PostetOnWorkplaceUsersList = () => {
   } else if (isLoading) {
     return (
       <div>
-        <p>Loading...</p>
+        <p>
+          <LoadingSpinner />
+        </p>
       </div>
     );
   } else {

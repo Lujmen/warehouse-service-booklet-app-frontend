@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import getActiveUsers from '../../../../../service/getActiveusers';
 import './activeUsersList.css';
+import LoadingSpinner from '../../../../../components/loadingSpinner/loadingSpinner';
 
 const ActiveUsersList = (props) => {
   const { data: activeUsers, isError, error, isLoading } = useQuery({ queryKey: ['loggedInUsers'], queryFn: () => getActiveUsers() });
@@ -15,7 +16,7 @@ const ActiveUsersList = (props) => {
   } else if (isLoading) {
     return (
       <div>
-        <p>Loading...</p>
+        <LoadingSpinner />
       </div>
     );
   } else {
