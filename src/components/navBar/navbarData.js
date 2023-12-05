@@ -3,6 +3,11 @@ const forForemanOrAdmin = [
     to: '/home',
     name: 'Strona Domowa',
   },
+
+  {
+    to: '/info',
+    name: 'Informacje',
+  },
   {
     to: '/activeUsers',
     name: 'Aktywni uzytkownicy',
@@ -19,7 +24,7 @@ const forUsersPostedOnForklift = [
   },
 
   {
-    to: '',
+    to: '/info',
     name: 'Informacje',
   },
   {
@@ -55,7 +60,7 @@ const forNoPosted = [
     name: 'Strona Domowa',
   },
   {
-    to: '/',
+    to: '/info',
     name: 'Informacje',
   },
 ];
