@@ -16,6 +16,10 @@ const forForemanOrAdmin = [
     to: '/chamferingRaports',
     name: 'Raport Fazowania',
   },
+  {
+    to: '/registerUser',
+    name: 'Zarejestrój Uzytkownika',
+  },
 ];
 const forUsersPostedOnForklift = [
   {

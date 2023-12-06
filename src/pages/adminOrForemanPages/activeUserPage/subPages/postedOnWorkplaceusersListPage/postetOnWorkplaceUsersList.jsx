@@ -29,9 +29,7 @@ const PostetOnWorkplaceUsersList = () => {
   } else if (isLoading) {
     return (
       <div>
-        <p>
-          <LoadingSpinner />
-        </p>
+        <LoadingSpinner />
       </div>
     );
   } else {

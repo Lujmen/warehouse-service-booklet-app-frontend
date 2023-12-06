@@ -20,6 +20,7 @@ import ActiveUsersList from './pages/adminOrForemanPages/activeUserPage/subPages
 import ChamferingReportsPage from './pages/adminOrForemanPages/chamferingReportsPage/ChamferingReportsPage';
 import { InfoPage } from './pages/infoPage/infoPage';
 import HomePage from './pages/homePage/homePage';
+import RegisterUser from './pages/adminOrForemanPages/registerUser/registerUser';
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,7 @@ const router = createBrowserRouter([
                 ],
               },
               { path: 'chamferingRaports', element: <ChamferingReportsPage /> },
+              { path: 'registeruser', element: <RegisterUser /> },
             ],
           },
         ],

@@ -11,15 +11,16 @@ const ChamferinEntryList = (props) => {
       <table className="">
         <thead>
           <tr>
-            <th>Data</th> <th>Zamiana</th>
+            <th>Data</th>
+            <th>Zamiana</th>
             <th>Ilość mm różnicy długości do wyrownania 1 strona (od strony piankowania)</th>
             <th>Ilość mm różnicy długości do wyrownania 2 strona (od strony qc)</th>
             <th>czas fazowania rur</th>
           </tr>
         </thead>
         <tbody>
-          {list.results.map((element) => (
-            <tr>
+          {list.results.map((element, index) => (
+            <tr key={index}>
               <th>{formattedDate(element.adaDate)}</th>
               <td>{element.shift}</td>
               <td>{element.differenceFromPingink}</td>
