@@ -31,17 +31,17 @@ const CurrentWorkplaceComponent = () => {
     return (
       <div className="workplace-info">
         <div lassName="message-box">
-          <h1>{error.message}</h1>
+          <p>{error.message}</p>
         </div>
       </div>
     );
   } else if (isLoading) {
-    return <h1>loading....</h1>;
+    return <p>loading....</p>;
   } else if (!lastEntry) {
     return (
       <div className="workplace-info">
         <div className="message-box">
-          <h1>Nie udalo sie znelezc wpisu</h1>
+          <p className="message-content">Nie udalo sie znelezc wpisu</p>
         </div>
       </div>
     );
@@ -51,7 +51,7 @@ const CurrentWorkplaceComponent = () => {
         {lastEntry.length > 0 ? (
           lastEntry.map((element, id) => (
             <div key={id} className="message-box">
-              <h1>{element.message}</h1>
+              <p className="message-content">{element.message}</p>
               <div className="button">
                 {element.isPosted === true && (
                   <button className="btn-primary" onClick={() => handleLeave(element.id)}>
@@ -63,7 +63,7 @@ const CurrentWorkplaceComponent = () => {
           ))
         ) : (
           <div className="message-box">
-            <h1>{lastEntry.message}</h1>
+            <p className="message-content">{lastEntry.message}</p>
             <div className="button">
               {lastEntry.isPosted === true && (
                 <button className="btn-primary" onClick={() => handleLeave(lastEntry.id)}>

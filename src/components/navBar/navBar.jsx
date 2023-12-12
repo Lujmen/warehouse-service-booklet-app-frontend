@@ -21,7 +21,7 @@ export const NavBar = () => {
     }
   }, [workplaceDetails.workplace]);
   return (
-    <nav>
+    <nav className="main-nav-bar">
       {navBarData.length > 0 && (
         <div>
           <div className="menu" onClick={() => setMenuOpen(!menuOpen)}>

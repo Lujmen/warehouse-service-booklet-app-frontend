@@ -1,12 +1,3 @@
-.App{
-    height: 100%;
-    width: 100%;  
-}
 .App .user-info{
-    margin-top: 1rem;
-    margin-left: 1rem;
-    font-weight: bold;
-   
+    margin: 1rem 0 0 1rem;
 }
-
-

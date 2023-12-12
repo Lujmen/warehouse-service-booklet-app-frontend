@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import './loginPage.css';
 
 const LoginPage = () => {
-  const { data: forkliftModels, isLoading } = useQuery({ querKey: ['forkliftModels'], queryFn: forkliModelOptions });
+  const { data: forkliftModels, isLoading } = useQuery({ queryKey: ['forkliftModels'], queryFn: forkliModelOptions });
   const [formData, setFormData] = useState({
     username: '',
     password: '',

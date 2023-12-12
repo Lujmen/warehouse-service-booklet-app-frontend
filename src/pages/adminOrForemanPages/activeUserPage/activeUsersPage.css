@@ -1,13 +1,14 @@
 .active-users-page-container{
-    margin: auto;
-    margin-top: 1rem;
     display: flex;
     flex-direction: column;
-    max-width:1200px;
-    min-height:500px;
-    border-radius: 0.5rem;
-}
-.active-users-page-container h1{
-    margin-left: 1rem;
+    min-height: 500px;
+    max-width: 98%;
+    min-width: 390px;
+    margin: auto;
     margin-top: 1rem;
+    padding:1rem;
+    border-radius: .5rem;
+}
+.active-users-page-container .active-users-page-header {
+    margin-bottom: 1rem;
 }

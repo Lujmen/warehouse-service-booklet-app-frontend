@@ -20,6 +20,7 @@ const forForemanOrAdmin = [
     to: '/registerUser',
     name: 'Zarejestrój Uzytkownika',
   },
+  { to: '/createShiftSchedule', name: 'Stworz Grafik' },
 ];
 const forUsersPostedOnForklift = [
   {
@@ -62,10 +63,6 @@ const forNoPosted = [
   {
     to: '/home',
     name: 'Strona Domowa',
-  },
-  {
-    to: '/info',
-    name: 'Informacje',
   },
 ];
 export { forForemanOrAdmin, forUsersPostedOnForklift, forUsersPostedOnGantry, forNoPosted };

@@ -21,22 +21,30 @@ import ChamferingReportsPage from './pages/adminOrForemanPages/chamferingReports
 import { InfoPage } from './pages/infoPage/infoPage';
 import HomePage from './pages/homePage/homePage';
 import RegisterUser from './pages/adminOrForemanPages/registerUser/registerUser';
+import NoLoginRequire from './auth/noLoginRequire';
+import NormalUserRequired from './auth/normalUserRequired';
+import ShiftSchedulePage from './pages/adminOrForemanPages/shiftScheduleCreatepage/shiftSchedulePage';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
     children: [
-      { path: 'login', element: <LoginPage /> },
+      { element: <NoLoginRequire />, children: [{ path: 'login', element: <LoginPage /> }] },
       { path: 'home', element: <HomePage /> },
       {
         //auth router
         element: <AuthRequired />,
         children: [
           {
-            path: 'serviceBooklet',
-            element: <ServiceBookletPage />,
-            children: [{ path: 'serviceBookletEntry/*', element: <ServiceBookletEntryForm /> }],
+            element: <NormalUserRequired />,
+            children: [
+              {
+                path: 'serviceBooklet',
+                element: <ServiceBookletPage />,
+                children: [{ path: 'serviceBookletEntry/:type', element: <ServiceBookletEntryForm /> }],
+              },
+            ],
           },
           { path: 'info', element: <InfoPage /> },
           //routes only for gantry
@@ -58,6 +66,7 @@ const router = createBrowserRouter([
               },
               { path: 'chamferingRaports', element: <ChamferingReportsPage /> },
               { path: 'registeruser', element: <RegisterUser /> },
+              { path: 'createShiftSchedule', element: <ShiftSchedulePage /> },
             ],
           },
         ],
@@ -70,13 +79,13 @@ const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // <React.StrictMode>
-  <AuthProvider>
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-      <ReactQueryDevtools />
-    </QueryClientProvider>
-  </AuthProvider>
-  // </React.StrictMode>
+  <React.StrictMode>
+    <AuthProvider>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+        <ReactQueryDevtools />
+      </QueryClientProvider>
+    </AuthProvider>
+  </React.StrictMode>
 );
 reportWebVitals();

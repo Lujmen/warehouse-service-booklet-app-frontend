@@ -1,28 +1,13 @@
 .active-users-list-container{
     display: flex;
     flex-direction: column;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50rem;
-    margin-bottom: 1rem; 
+    margin-right: 5rem;
+    padding:1rem;
 }
-@media(max-width:390px){
-    .active-users-list-container{
-        width: 20rem;
-    }}
-
-ul.active-users-list  {
+.active-users-list-container ul{
     list-style: none;
-    align-items: center;
-    width: 70%;
 }
-li.active-users-list-item  {
-    border: 1px solid white;
-    border-radius: 1rem;
-    margin-bottom: 1rem;   
-    display: flex;
-    justify-content: space-around;
-    padding: 1rem;
-    font-size: large;
+.active-users-list-container li{
+    margin-bottom: 1rem;
+    
 }
-

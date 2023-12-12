@@ -1,32 +1,15 @@
 .posted-on-workplace-users-list{
     display: flex;
     flex-direction: column;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50rem;
-    margin-bottom: 1rem; 
+    padding: 1rem;
 }
-@media(max-width:390px){
-    .posted-on-workplace-users-list{
-        width: 20rem;
-    }}
-    .posted-on-workplace-users-list ul{
-        list-style: none;
-    }
-    .posted-on-workplace-users-list li{
-        border: 1px solid white;
-        border-radius: 1rem;
-        margin-bottom: 1rem;
-    }
-    .posted-on-workplace-users-list .list-item{
-        display:flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        padding:0.9rem;
-    }
-    .posted-on-workplace-users-list button{
-        border: none;
-        padding: 0.20rem;
-        border-radius: .25rem;
-    }
+.posted-on-workplace-users-list ul{
+    list-style: none;
+
+}
+.posted-on-workplace-users-list ul .list-item{
+    display: flex;
+}
+.posted-on-workplace-users-list ul .list-item .item-detail{
+    margin-right: 1rem;
+}

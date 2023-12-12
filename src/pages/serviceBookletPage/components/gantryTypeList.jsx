@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import GantryTypesService from '../../../service/gantryModelService';
 
 const GantryTypeList = () => {
@@ -9,6 +9,9 @@ const GantryTypeList = () => {
     error,
     isPending,
   } = useQuery({ queryKey: ['gantryTypes'], queryFn: GantryTypesService.getGantryTypes, gcTime: 0, retry: false });
+  const navigate = useNavigate();
+
+
 
   if (isPending) {
     <h1>Loading...</h1>;

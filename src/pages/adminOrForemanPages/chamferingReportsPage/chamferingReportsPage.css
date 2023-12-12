@@ -1,79 +1,28 @@
 .chamfering-page-main-container{
+    display: flex;
+    flex-direction: column;
+    max-width: 98%;
+    min-width: 390px;
     margin: auto;
     margin-top: 1rem;
+    padding: 1rem;
+}
+.chamfering-page-main-container .chamfering-repotrs-form-container{
     display: flex;
     flex-direction: column;
-    max-width:1200px;
-    min-width: 390px;
-    min-height: 500px;
-    border-radius: 0.5rem;  
-  
+    margin: auto;
 }
-/* form */
-.chamfering-repotrs-form-container{
-
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-}
-
-.chamfering-repotrs-form-container .input-box{
+.chamfering-page-main-container .chamfering-repotrs-form-container h1{
     margin-bottom: 1rem;
 }
-.chamfering-repotrs-form-container .input-box:first-child{
-    margin-top: 1rem;
-}
-.chamfering-repotrs-form-container input{
-    border-radius: .25rem;
-    padding: .25rem;
-}
-.chamfering-repotrs-form-container input[type="submit"]{
-    border: none;
+.chamfering-page-main-container .chamfering-repotrs-form-container .input-box{
+    margin: auto;
     display: flex;
-}
-.chamfering-repotrs-form-container input[type="submit"]:disabled{
-    background-color: gray;
-}
-.chamfering-repotrs-form-container input[type="submit"]:hover{
-    cursor: pointer;
-}
-.chamfering-repotrs-form-container .error-box p{
-    color: red;
-}
-/* chamfering time */
-.chamfering-time-container{
-
-    display: flex;
+    max-width: 12rem;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    margin-bottom: 1rem;
 }
-/* table */
-.chamfering-tabel{
-    display: flex;
-    flex-direction: column;       
-}
-.chamfering-tabel table{
-    padding-bottom: 1rem;
-     
+.chamfering-page-main-container .chamfering-time-container{
+    margin: auto;
 }
 
-.chamfering-tabel th, .chamfering-tabel td{
-    background-color: var( --clr-primary-100);
-    padding:1rem;
-    text-align: center;   
-}
-
-
-
-@media(max-width:390px){
-    .chamfering-tabel table{
-        font-size: 0.70rem;
-    }
-    .chamfering-tabel th, .chamfering-tabel td{
-        padding:0.25rem;
-    }
-
-
-}

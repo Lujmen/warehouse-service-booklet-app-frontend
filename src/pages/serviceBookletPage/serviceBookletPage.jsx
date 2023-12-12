@@ -16,7 +16,7 @@ const ServiceBookletPage = () => {
         <GantryTypeList />
       ) : (
         <div className="service-booklet-entry-link-item">
-          <NavLink className="link" to="serviceBookletEntry">
+          <NavLink className="link" to="serviceBookletEntry/forklift">
             Dodaj wpis
           </NavLink>
         </div>

@@ -1,116 +1,114 @@
 .service-booklet-page-container{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    max-width: 98%;
+    min-width: 400px;
     margin:auto;
-    max-width:1200px;
-    min-width: 390px;
     margin-top: 1rem;
-    padding:1rem;
+    padding: 1rem;
     border-radius: 0.5rem;
+    
 }
-.workplace-info{
+@media(max-width: 390px){
+    .service-booklet-page-container{
+        max-width:390px;
+        min-width: 390px;
+        
+       
+    }
+
+}
+.service-booklet-page-container .workplace-info{
+    display: flex;
+  
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+.service-booklet-page-container .message-box{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    
+    margin-bottom: 1rem;
 }
-.workplace-info .message-box{
-    margin-top: 1rem;
-    height: 5rem;
-}
-.workplace-info .message-box button{
-    margin-top: 1rem;
-    border: none;
-    border-radius: 0.5rem;
-    width:8rem;
-    height: 2rem;
-}
-.workplace-info .message-box button:hover{
-  cursor: pointer;
+.service-booklet-page-container .message-box .message-content{
+    display: flex;
+    
 }
 
-@media(max-width:450px){
-    .workplace-info .message-box button{
-        margin-top:0;
+@media(max-width: 500px){
+    .service-booklet-page-container .message-box .message-content{
+        max-width: 390px;
+        
+        margin-right: 0.1rem;
+        
     }
+
+}
+.service-booklet-page-container .button{
+   margin-top: .5rem;
+}
+.service-booklet-page-container button{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border: none;
+    border-radius: .25rem;
 }
 .service-booklet-entry-link-item{
-    display: flex;
-    justify-content: space-around;
-    border-radius: 0.5rem;
-    margin-top: 1rem;
-    height: 2rem;
-    width: 8rem;
-    text-align: center;
+    display:flex;
+    margin-bottom: 1rem;
+    
+}
+.service-booklet-entry-link-item a{
+    text-decoration: none;
+    padding:.25rem 1rem;
+    width:9rem;
+    border-radius: 0.5rem;  
 }
 
-.service-booklet-entry-link-item a{
-    display: flex;
-    flex-direction:column;
-    width: 8rem;
-    line-height: 2rem;  
-    border-radius: 0.5rem;
-}
-/* entry form  */
+/* form */
 .service-booklet-entry-form{
-    display: flex;
+    display: felx;
     flex-direction: column;
-    margin-top: 1rem;
-    max-width: 10rem;
+}
+@media(max-width: 500px){
+    .service-booklet-entry-form{
+        max-width:390px; ;
+
+    }
+
 }
 .service-booklet-entry-form .input-box{
     display: flex;
-    justify-content: flex-start;
-    
-    margin-top: 1rem;
+    align-items: center;
+    width: 10rem;  
+    margin-bottom: 1rem;
 }
-.service-booklet-entry-form .input-box label{
-    width: 8rem;  
+.service-booklet-entry-form .input-box input, .service-booklet-entry-form .input-box label  {
+    display: flex;
+    align-items: center;
+    width: 5rem;
+    margin: auto;
 }
-.service-booklet-entry-form .input-box-issues{
+.service-booklet-entry-form  .input-box-issues{
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    border:1px solid white;
+    max-width: 50%;
+    margin-bottom: 1rem;
+}
+.service-booklet-entry-form  .input-box-issues textarea{
+    height: 7rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    resize: none;
+}
+.service-booklet-entry-form   .button-input-box input{
+    border:none;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius:.25rem;
+}
+.service-booklet-entry-form  .error-box{
     margin-top: 1rem;
-    width:20rem
 }
-.service-booklet-entry-form .input-box-issues textarea{
-   width:100%;
-   height: 5rem;
-   resize: none;
-}
-.service-booklet-entry-form .button-input-box{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    border: none;
-    border-radius: 0.5rem;
-    margin-top: 1rem;
-}
-.service-booklet-entry-form .button-input-box .btn-primary{
-    border: none;
-    width: 8rem;
-    border-radius: 0.25rem;
-}
-.service-booklet-entry-form .button-input-box .btn-primary{
-    border: none;
-    width: 8rem;
-    border-radius: 0.25rem;
-}
-.service-booklet-entry-form .button-input-box .btn-primary:disabled{
-    border: none;
-    width: 8rem;
-    border-radius: 0.25rem;
-    background-color: gray;
-}
-.service-booklet-entry-form .error-box{
-    margin-top: 1rem;
-    display: flex;
-    min-width: 370px;
-}
-.service-booklet-entry-form .error-box p{
-    display: flex; 
-    color: red;
-}
+
 
