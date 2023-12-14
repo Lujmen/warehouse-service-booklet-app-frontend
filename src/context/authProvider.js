@@ -68,7 +68,13 @@ const AuthProvider = ({ children }) => {
         })
         .then(() => navigate('/'));
     } catch (error) {
-      throw error;
+      console.log(error);
+      setIsAuthenticated('');
+      setWorkplaceDetailsState({ workplace: '', workplaceModel: '' });
+      setUserDetailsState('');
+      setUserRoleState('');
+      localStorage.clear();
+      navigate('/');
     }
   };
 
