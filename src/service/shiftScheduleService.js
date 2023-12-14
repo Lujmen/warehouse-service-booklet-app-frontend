@@ -17,5 +17,23 @@ const shiftScheduleService = {
       throw error;
     }
   },
+  isExists: async () => {
+    try {
+      const response = await fetch(process.env.REACT_APP_BASE_API_URL + 'test/isExists', {
+        method: 'GET',
+        credintials: 'include',
+      });
+      // if dosnt exists return false
+      if (response.ok) {
+        const data = await response.json();
+        if (data) {
+          console.log([data]);
+
+          return data;
+        }
+        return data;
+      }
+    } catch (error) {}
+  },
 };
 export default shiftScheduleService;

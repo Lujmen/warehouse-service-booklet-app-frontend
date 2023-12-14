@@ -4,7 +4,7 @@ import { useDrag } from 'react-dnd';
 const DraggableUser = ({ user }) => {
   const [, drag] = useDrag({
     type: 'USER',
-    item: { user },
+    item: user,
   });
 
   return (

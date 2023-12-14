@@ -1,25 +1,61 @@
 // ShiftSchedule.js
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ShiftColumn } from './shiftColumn';
 import { UserList } from './userList';
 import shiftScheduleService from '../../../../service/shiftScheduleService';
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import userService from '../../../../service/userService';
 import { initialSchedule } from '../data/initialSchedule ';
 import { shifts } from '../data/intialShifts';
 import { handleCreateSchedule } from '../utils/handleCreateSchedule';
+import filterUsersFromExistingSchedule from '../utils/filterUsersFromExistingSchedule';
 
 const ShiftSchedule = () => {
+  const queryCLient = useQueryClient();
   const {
     data: users,
     isLoading,
     isError,
-    setData: setUsers,
   } = useQuery({ queryKey: ['users'], queryFn: userService.getAllUsers, retry: false, refetchOnWindowFocus: false });
-  const [schedule, setSchedule] = useState(initialSchedule);
+  const [schedule, setSchedule] = useState('');
 
-  if (isLoading) {
+  const { mutateAsync } = useMutation({
+    mutationFn: filterUsersFromExistingSchedule,
+    onSuccess: (filtredUsers) => {
+      queryCLient.setQueryData(['users'], filtredUsers);
+    },
+  });
+
+  useEffect(() => {
+    let isMounted = true;
+    const fetchData = async () => {
+      try {
+        const existSchedule = await shiftScheduleService.isExists();
+        if (isMounted && existSchedule) {
+          setSchedule(await existSchedule);
+        } else {
+          setSchedule(initialSchedule);
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchData();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+  useEffect(() => {
+    if (users && schedule !== '') {
+      mutateAsync({
+        key: ['users'],
+        data: { users, schedule, shifts },
+      });
+    }
+  }, [users, schedule, mutateAsync]);
+
+  if (isLoading || schedule === '') {
     return <div>Loading...</div>;
   }
 
@@ -30,9 +66,9 @@ const ShiftSchedule = () => {
   return (
     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
       {shifts.map((shift) => (
-        <ShiftColumn key={shift.id} shift={shift} users={users} setUsers={setUsers} setSchedule={setSchedule} schedule={schedule} />
+        <ShiftColumn key={shift.id} shift={shift} users={users} setSchedule={setSchedule} schedule={schedule} />
       ))}
-      <UserList users={users} setUsers={setUsers} />
+      <UserList users={users} />
       <div>
         <button onClick={(e) => handleCreateSchedule(e, schedule)}>check</button>
       </div>

@@ -22,10 +22,8 @@ const Workplace = ({ workplaceName, schedule, setSchedule, shift, index }) => {
       {workplaceName}
       {schedule[shift][index].users.map((user, index) => (
         <div key={index}>
-          <p>{user.user.username}</p>
-          <button onClick={() => handleRemoveFromWorkplace(user.user, index, setSchedule, queryCLient, shift, schedule, workplaceName)}>
-            remove
-          </button>
+          <p>{user.username}</p>
+          <button onClick={() => handleRemoveFromWorkplace(user, index, setSchedule, queryCLient, shift, schedule, workplaceName)}>remove</button>
         </div>
       ))}
     </div>
