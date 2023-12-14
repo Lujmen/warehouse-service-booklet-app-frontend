@@ -8,7 +8,6 @@ import { handleRemoveFromWorkplace } from '../utils/handleRemoveFromWorkplace';
 
 //index is concrete workplace
 const Workplace = ({ workplaceName, schedule, setSchedule, shift, index }) => {
-  //   console.log('index' + schedule[shift][index].users.length);
   const queryCLient = useQueryClient();
   const [, drop] = useDrop({
     accept: 'USER',
