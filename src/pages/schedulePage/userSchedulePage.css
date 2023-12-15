@@ -1,0 +1,74 @@
+.schedulePage{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    border: 1px solid white;
+    min-width:500px;
+    margin: 0 auto 0 auto;    
+}
+ @media(max-width:500px) {
+    .schedulePage{
+        margin-top: 1rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        min-width: 390px;
+        
+
+    }
+    .schedulePage ul{
+        border: 1px solid red;
+       display: flex;
+       flex-direction: column;
+        list-style: none;
+    }
+    .selectWeekForm{
+        margin-top: 1rem;
+        border: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        min-height: 5rem;
+        min-width: 12rem;
+        align-items: flex-start;
+        justify-content: space-around;
+    }
+    .selectWeekForm .inputFormContainer{
+        border: 1px solid pink;
+        display: flex;
+        justify-content: flex-start;    
+        min-width: 12rem;
+    
+    }
+    .selectWeekForm .inputFormContainer label{
+        border: 1px solid pink;
+       width: 50%;   
+        
+    }
+    .selectWeekForm .inputFormContainer input{
+    
+       width: 50%;   
+       margin: auto;
+       height: 1.5rem;
+        
+    }
+
+
+ }
+ .schedulePage ul{
+    border: 1px solid green;
+    display: flex;
+    min-width: 20rem;
+    justify-content: center;
+    list-style: none;
+}
+.schedulePage li{
+    border: 3px solid magenta;
+
+}
+
+
+
+
+
+

@@ -5,6 +5,8 @@ import SelectWeekForm from './components/selectWeekForm';
 import { useEffect } from 'react';
 import shifts from './data/shifts';
 import Shift from './components/shift';
+import LoadingSpinner from '../../components/loadingSpinner/loadingSpinner';
+import './userSchedulePage.css';
 
 const SchedulePage = () => {
   const [isNext, setIsNext] = useState(false);
@@ -21,22 +23,29 @@ const SchedulePage = () => {
     refetch();
   }, [isNext]);
 
-  if (isFetching) {
-    return <div>Loading...</div>;
-  }
-
   if (isError) {
     return <div>Error fetching schedule</div>;
   }
 
   // Render your component with the fetched schedule
   return (
-    <div>
-      <button onClick={() => console.log(schedule)}>check</button>
-      <SelectWeekForm isNext={isNext} setIsNext={setIsNext} />
-      {shifts.map((shift) => (
-        <Shift shift={shift} schedule={schedule} />
-      ))}
+    <div className="schedulePage bg-primary-100">
+      <div style={{ border: '8px solid red' }}>
+        <SelectWeekForm isNext={isNext} setIsNext={setIsNext} />
+        <ul>
+          {isFetching ? (
+            <>
+              <LoadingSpinner />
+            </>
+          ) : (
+            shifts.map((shift) => (
+              <li>
+                <Shift shift={shift} schedule={schedule} />
+              </li>
+            ))
+          )}
+        </ul>
+      </div>
     </div>
   );
 };

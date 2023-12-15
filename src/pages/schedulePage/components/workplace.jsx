@@ -5,16 +5,22 @@ const Workplace = (props) => {
   const { workplace } = props;
 
   return (
-    <div>
+    <div
+      style={{
+        border: '2px solid orange',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: '.5rem',
+        padding: '.5rem',
+      }}
+    >
       <h1>{workplace.workplace}</h1>
-      <div>------------USERS--------------</div>
-      <ul>
+      <div>Pracownik</div>
+      <ul style={{ alignItems: 'center' }}>
         <Users users={workplace.users} />
       </ul>
-
-      <button className="btn-primary" onClick={() => console.log(workplace)}>
-        workplace
-      </button>
     </div>
   );
 };

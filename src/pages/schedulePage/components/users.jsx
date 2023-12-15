@@ -5,7 +5,7 @@ export const Users = (prop) => {
   return (
     <div>
       {users.map((user) => (
-        <div>{user.username}</div>
+        <div style={{ border: '1px solid gold', marginBottom: '.25rem' }}>{user.username}</div>
       ))}
     </div>
   );

@@ -8,10 +8,13 @@ const Shift = (props) => {
     <div>
       <h1>{shift}</h1>
       <div>
-        {schedule[shift].map((scheduleShift) => (
-          <Workplace workplace={scheduleShift} />
-        ))}
-        <button onClick={() => console.log(schedule[shift])}>schedule</button>
+        <ul>
+          {schedule[shift].map((scheduleShift) => (
+            <li style={{ border: '1px solid yellow', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <Workplace workplace={scheduleShift} />
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

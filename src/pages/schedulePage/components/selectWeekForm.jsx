@@ -3,8 +3,8 @@ import React from 'react';
 const SelectWeekForm = (props) => {
   const { isNext, setIsNext } = props;
   return (
-    <form action="">
-      <div>
+    <form className="selectWeekForm" action="">
+      <div className="inputFormContainer">
         <label htmlFor="">Bierzacy tydzien</label>
         <input
           onChange={(e) => {
@@ -16,7 +16,7 @@ const SelectWeekForm = (props) => {
           type="checkbox"
         />
       </div>
-      <div>
+      <div className="inputFormContainer">
         <label htmlFor="">Ptzyszly tydzien</label>
         <input
           onChange={(e) => {
