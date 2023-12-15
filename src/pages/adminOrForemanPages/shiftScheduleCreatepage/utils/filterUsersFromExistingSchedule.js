@@ -1,5 +1,6 @@
-const filterUsersFromExistingSchedule = (data) => {
-  const { users, schedule, shifts } = data.data;
+const filterUsersFromExistingSchedule = (users, schedule, shifts) => {
+  if (typeof users === 'undefined') return;
+  if (schedule === '') return;
   let filtredusers = [];
   let usersFromSchedule = new Set();
 
@@ -11,7 +12,6 @@ const filterUsersFromExistingSchedule = (data) => {
     });
   });
   filtredusers = users.filter((user) => !usersFromSchedule.has(user._id));
-
   return filtredusers;
 };
 

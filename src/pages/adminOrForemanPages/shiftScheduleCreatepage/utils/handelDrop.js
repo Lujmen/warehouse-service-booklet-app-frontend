@@ -16,14 +16,6 @@ const handleDrop = async (user, workplaceName, setSchedule, queryCLient, shift, 
       ],
     };
     setSchedule(updatedSchedule);
-    queryCLient.setQueryData(['users'], (prevState) => {
-      const userIndex = prevState.findIndex((userFromList) => userFromList['username'] === user.username);
-      if (userIndex !== -1) {
-        prevState.splice(userIndex, 1);
-        return prevState;
-      }
-      return prevState;
-    });
   }
 };
 export { handleDrop };

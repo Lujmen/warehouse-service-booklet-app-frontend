@@ -12,8 +12,6 @@ const handleRemoveFromWorkplace = (userToRemove, index, setSchedule, queryCLient
         : item
     ),
   }));
-  queryCLient.setQueryData(['users'], (prevState) => [...prevState, userToRemove]);
-  console.log(schedule);
 };
 
 export { handleRemoveFromWorkplace };

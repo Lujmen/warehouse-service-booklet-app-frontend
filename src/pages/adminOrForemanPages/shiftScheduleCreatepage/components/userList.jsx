@@ -1,5 +1,4 @@
 import React from 'react';
-import { useDrag } from 'react-dnd';
 import DraggableUser from './draggableUser';
 
 export const UserList = ({ users }) => {

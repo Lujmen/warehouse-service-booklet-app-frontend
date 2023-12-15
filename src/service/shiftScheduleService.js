@@ -1,7 +1,7 @@
 const shiftScheduleService = {
-  createSchedule: async (schedule) => {
+  createSchedule: async (schedule, isNext) => {
     try {
-      const response = await fetch(process.env.REACT_APP_BASE_API_URL + `schedule/createOrUpdate`, {
+      const response = await fetch(process.env.REACT_APP_BASE_API_URL + `schedule/createOrUpdate?next=${isNext}`, {
         method: 'POST',
         credentials: 'include',
         headers: {
@@ -17,9 +17,9 @@ const shiftScheduleService = {
       throw error;
     }
   },
-  isExists: async () => {
+  isExists: async (isNext) => {
     try {
-      const response = await fetch(process.env.REACT_APP_BASE_API_URL + 'schedule/isExists', {
+      const response = await fetch(process.env.REACT_APP_BASE_API_URL + `schedule/get?next=${isNext}`, {
         method: 'GET',
         credintials: 'include',
       });

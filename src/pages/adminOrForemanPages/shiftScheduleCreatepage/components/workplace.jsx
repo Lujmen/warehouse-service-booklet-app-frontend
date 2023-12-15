@@ -1,5 +1,4 @@
 // Workstation.js
-
 import React from 'react';
 import { useDrop } from 'react-dnd';
 import { useQueryClient } from '@tanstack/react-query';

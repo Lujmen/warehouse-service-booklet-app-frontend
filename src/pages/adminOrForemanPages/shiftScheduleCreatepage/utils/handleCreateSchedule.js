@@ -1,7 +1,7 @@
 import shiftScheduleService from '../../../../service/shiftScheduleService';
 
-const handleCreateSchedule = (e, schedule) => {
+const handleCreateSchedule = (e, schedule, isNext) => {
   e.preventDefault();
-  shiftScheduleService.createSchedule(schedule);
+  shiftScheduleService.createSchedule(schedule, isNext);
 };
 export { handleCreateSchedule };
