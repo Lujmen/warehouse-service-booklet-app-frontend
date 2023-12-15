@@ -24,6 +24,7 @@ import RegisterUser from './pages/adminOrForemanPages/registerUser/registerUser'
 import NoLoginRequire from './auth/noLoginRequire';
 import NormalUserRequired from './auth/normalUserRequired';
 import ShiftSchedulePage from './pages/adminOrForemanPages/shiftScheduleCreatepage/shiftSchedulePage';
+import SchedulePage from './pages/schedulePage/schedulePage';
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
                 path: 'serviceBooklet',
                 element: <ServiceBookletPage />,
                 children: [{ path: 'serviceBookletEntry/:type', element: <ServiceBookletEntryForm /> }],
+              },
+              {
+                path: 'schedule',
+                element: <SchedulePage />,
               },
             ],
           },
