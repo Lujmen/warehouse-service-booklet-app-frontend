@@ -5,12 +5,14 @@ const Shift = (props) => {
   const { shift, schedule } = props;
   console.log(shift);
   return (
-    <div>
-      <h1>{shift}</h1>
+    <div style={{ minWidth: '20rem' }}>
+      <h1 className="bg-primary-400" style={{ display: 'flex', alignItems: 'center', minHeight: '2rem', padding: '0 1rem', marginTop: '1rem' }}>
+        {shift}
+      </h1>
       <div>
         <ul>
           {schedule[shift].map((scheduleShift) => (
-            <li style={{ border: '1px solid yellow', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <li style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
               <Workplace workplace={scheduleShift} />
             </li>
           ))}

@@ -30,16 +30,16 @@ const SchedulePage = () => {
   // Render your component with the fetched schedule
   return (
     <div className="schedulePage bg-primary-100">
-      <div style={{ border: '8px solid red' }}>
+      <div style={{ blockSize: 'fit-content' }}>
         <SelectWeekForm isNext={isNext} setIsNext={setIsNext} />
-        <ul>
+        <ul className="main">
           {isFetching ? (
             <>
               <LoadingSpinner />
             </>
           ) : (
             shifts.map((shift) => (
-              <li>
+              <li className="shift-item" style={{}}>
                 <Shift shift={shift} schedule={schedule} />
               </li>
             ))

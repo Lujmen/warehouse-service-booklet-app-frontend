@@ -8,9 +8,18 @@ const DraggableUser = ({ user }) => {
   });
 
   return (
-    <div ref={drag} style={{ margin: '5px', padding: '5px', border: '1px solid #ddd', cursor: 'move' }}>
+    <div
+      ref={(node) => drag(node)}
+      style={{
+        margin: '5px',
+        padding: '5px',
+        border: '1px solid #ddd',
+        cursor: 'move',
+      }}
+    >
       {user.username}
     </div>
   );
 };
+
 export default DraggableUser;

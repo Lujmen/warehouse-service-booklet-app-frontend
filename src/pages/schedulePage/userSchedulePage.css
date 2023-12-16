@@ -3,7 +3,7 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
-    border: 1px solid white;
+    flex-wrap: nowrap;
     min-width:500px;
     margin: 0 auto 0 auto;    
 }
@@ -14,34 +14,51 @@
         align-items: center;
         justify-content: space-around;
         min-width: 390px;
+        max-width:390px ;
         
 
     }
+    .main .shift-item:first-child {
+        margin:0;
+      }
+    
+      .main .shift-item:last-child {
+        margin:0;
+      }
+      .container .selectWeekForm{
+        margin-bottom: 0;
+      }
+ 
+
     .schedulePage ul{
-        border: 1px solid red;
-       display: flex;
+       display:flex;
        flex-direction: column;
+      
+       flex-wrap: nowrap;
         list-style: none;
-    }
+        min-width: 20rem;
+    }}
+    
     .selectWeekForm{
         margin-top: 1rem;
-        border: 1px solid black;
+       margin-bottom: 1rem;
         display: flex;
         flex-direction: column;
-        min-height: 5rem;
-        min-width: 12rem;
-        align-items: flex-start;
+        min-width: 20rem;
+        align-items: center;
         justify-content: space-around;
+       
     }
     .selectWeekForm .inputFormContainer{
-        border: 1px solid pink;
+        
+        margin-bottom: .5rem;
         display: flex;
         justify-content: flex-start;    
-        min-width: 12rem;
+        min-width: 20rem;
     
     }
     .selectWeekForm .inputFormContainer label{
-        border: 1px solid pink;
+      
        width: 50%;   
         
     }
@@ -52,18 +69,51 @@
        height: 1.5rem;
         
     }
+    @media(min-width: 1300px){
+    .shift-item:first-child{
+        margin-right: 10rem;
+        
+        
+    }
+    .shift-item:last-child{
+        margin-left: 10rem;
+        
+        
+    }
+    .schedulePage .main {
+        flex-wrap: nowrap;
+    }}
+    @media(max-width:1299px){
+        .shift-item:first-child{
+            margin-right: 3rem;
+                 
+        }
+        .shift-item:last-child{
+            margin-left: 3rem;
+               
+        }
+    }
+   
 
 
- }
- .schedulePage ul{
-    border: 1px solid green;
+
+ 
+ .schedulePage .main {
+   /* border: 5px solid red; */
     display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
     min-width: 20rem;
     justify-content: center;
     list-style: none;
 }
 .schedulePage li{
-    border: 3px solid magenta;
+    min-width: 20rem;
+    
+    
+    
+    
 
 }
 
