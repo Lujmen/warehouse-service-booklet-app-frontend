@@ -1,3 +1,6 @@
+.App{
+    max-width: 100vw;
+}
 .App .user-info{
     margin: 1rem 0 0 1rem;
 }

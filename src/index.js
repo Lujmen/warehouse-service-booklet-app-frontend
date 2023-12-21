@@ -23,8 +23,8 @@ import HomePage from './pages/homePage/homePage';
 import RegisterUser from './pages/adminOrForemanPages/registerUser/registerUser';
 import NoLoginRequire from './auth/noLoginRequire';
 import NormalUserRequired from './auth/normalUserRequired';
-import ShiftSchedulePage from './pages/adminOrForemanPages/shiftScheduleCreatepage/shiftSchedulePage';
-import SchedulePage from './pages/schedulePage/schedulePage';
+
+import DndBoard from './pages/adminOrForemanPages/shiftScheduleCreatepage/DndBoard';
 
 const router = createBrowserRouter([
   {
@@ -47,7 +47,7 @@ const router = createBrowserRouter([
               },
               {
                 path: 'schedule',
-                element: <SchedulePage />,
+                element: <DndBoard />,
               },
             ],
           },
@@ -71,7 +71,7 @@ const router = createBrowserRouter([
               },
               { path: 'chamferingRaports', element: <ChamferingReportsPage /> },
               { path: 'registeruser', element: <RegisterUser /> },
-              { path: 'createShiftSchedule', element: <ShiftSchedulePage /> },
+              { path: 'createShiftSchedule', element: <DndBoard /> },
             ],
           },
         ],
