@@ -4,14 +4,14 @@ import { DndContext, DragOverlay, MouseSensor, TouchSensor, useSensor, useSensor
 import UserItem from './components/UserItem';
 import UsersColumn from './components/UsersColumn';
 import { initialSchedule, shifts } from './data/data';
-
 import { createPortal } from 'react-dom';
 import { createScheduleFormUSerList } from './utils/createSheduleFromUSerList';
-import { fetchScheduleIfExists } from './utils/fetchScheduleIfExists';
 import ShiftColumn from './components/shiftColumn';
 import LoadingSpinner from '../../../components/loadingSpinner/loadingSpinner';
 import { scheduleModificationFor12HoursShift } from './utils/scheduleModificationFor12HoursShift';
+import SelectWeekForm from './components/selectWeekForm';
 import Select12HoursShiftForm from './components/select12HoursShiftForm';
+import './dndBoard.css';
 
 const DndBoard = () => {
   // need to chenge state after schedule fetched
@@ -33,7 +33,6 @@ const DndBoard = () => {
   //chuj wiem ale z tym to dziala
   const touchSensor = useSensor(TouchSensor, {
     // Press delay of 250ms, with tolerance of 5px of movement
-
     activationConstraint: {
       delay: 100,
       tolerance: 5,
@@ -53,20 +52,29 @@ const DndBoard = () => {
     );
   } else {
     return (
-      <div>
-        {/* submit button container */}
-        <div style={{ marginLeft: '1rem', marginBottom: '1rem' }}>
-          <button style={{ padding: '.5rem' }} onClick={() => createScheduleFormUSerList(users, schedule)}>
-            Zapisz
-          </button>
+      <div className="dnd-board-container">
+        <div className="forms-container">
+          {/* button container */}
+          <div className="save-button-container">
+            <button className="btn-primary" onClick={() => createScheduleFormUSerList(users, schedule)}>
+              Zapisz
+            </button>
+          </div>
+          {/* week select form */}
+          <div className="select-week-container">
+            <SelectWeekForm />
+          </div>
           {/* 12h shift options */}
-          <Select12HoursShiftForm
-            set12HoursShift={set12HoursShift}
-            is12HoursShift={is12HoursShift}
-            submitFunction={() => scheduleModificationFor12HoursShift(is12HoursShift, setSchedule, setUsers)}
-          />
+          <div className="select-shift-duration-container">
+            <Select12HoursShiftForm
+              set12HoursShift={set12HoursShift}
+              is12HoursShift={is12HoursShift}
+              submitFunction={() => scheduleModificationFor12HoursShift(is12HoursShift, setSchedule, setUsers)}
+            />
+          </div>
         </div>
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        {/* for now this styling each column 2rem padding */}
+        <div className="dnd-columns-area">
           <DndContext sensors={sensors} onDragStart={onDragStart} onDragEnd={onDragEnd}>
             <UsersColumn users={users.filter((user) => user.columnId === 'unsigned')} />
             {shifts.map((shift, index) => (
@@ -76,10 +84,8 @@ const DndBoard = () => {
                 </li>
               </ul>
             ))}
-            {createPortal(
-              <DragOverlay>{dragingUser && <UserItem user={dragingUser} isDraggingOverlay={true} />}</DragOverlay>,
-              document.getElementById('root')
-            )}
+            {/*when i use here portal ignore my css classes */}
+            <DragOverlay>{dragingUser && <UserItem user={dragingUser} isDraggingOverlay={true} />}</DragOverlay>
           </DndContext>
         </div>
       </div>
@@ -87,8 +93,8 @@ const DndBoard = () => {
     // for now i leave this like that
     function onDragEnd(e) {
       const { active, over } = e;
-      console.log(over.data.current.is12HoursShift);
       if (!e.over) return;
+      console.log(over.data.current.is12HoursShift);
       const userIndex = users.findIndex((user) => user._id === active.id);
       setUsers((prevUsers) =>
         prevUsers.map((user, index) =>

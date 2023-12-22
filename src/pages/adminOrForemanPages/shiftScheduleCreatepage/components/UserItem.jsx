@@ -9,23 +9,17 @@ const UserItem = ({ user, isDraggingOverlay }) => {
 
   const style = {
     transform: CSS.Translate.toString(transform),
-    border: '1px solid white',
-    touchAction: 'none',
-    width: '100%',
-    margin: 'auto',
-    padding: '.25rem 0 .25rem 0',
 
-    minWidth: '10rem',
-    maxWidth: '10rem',
+    touchAction: 'none',
+
     visibility: isDragging ? 'hidden' : 'visible',
     cursor: isDraggingOverlay ? 'grabbing' : 'grab',
-    backgroundColor: isDraggingOverlay ? 'black' : 'transparent',
-    borderRadius: '1rem',
+    backgroundColor: isDraggingOverlay ? '#305099' : 'transparent',
   };
 
   return (
-    <div key={user._id} ref={setNodeRef} style={style} {...attributes} {...listeners}>
-      <p style={{ display: 'flex', margin: 'auto', textAlign: 'center', justifyContent: 'center' }}>{user.username}</p>
+    <div className="user-item" key={user._id} ref={setNodeRef} style={style} {...attributes} {...listeners}>
+      <p>{user.username}</p>
     </div>
   );
 };

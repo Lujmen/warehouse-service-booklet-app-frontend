@@ -12,22 +12,14 @@ const UsersColumn = ({ users }) => {
 
   /* ... */
   return (
-    <div ref={setNodeRef} style={{ minWidth: '15rem', border: '1px solid black', marginLeft: '1rem', borderRadius: '0 0 1rem 1rem' }}>
+    <div className="user-column" ref={setNodeRef}>
       {/* header */}
-      <div style={{ marginBottom: '1rem', background: 'black', padding: '.25rem 0 .25rem 0' }}>
-        <h1 style={{ textAlign: 'center', fontSize: '1.2rem', fontWeight: 'bold' }}>Uzytkownicy</h1>
+      <div className="user-column-headre">
+        <h1>Uzytkownicy</h1>
       </div>
-      <ul
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          boxSizing: 'border-box',
-          alignItems: 'center',
-          padding: '1rem',
-        }}
-      >
+      <ul>
         {users.map((user, index) => (
-          <li key={index} style={{ width: '100%', marginBottom: '1rem', padding: '.5rem' }}>
+          <li key={index}>
             <UserItem user={user} />
           </li>
         ))}

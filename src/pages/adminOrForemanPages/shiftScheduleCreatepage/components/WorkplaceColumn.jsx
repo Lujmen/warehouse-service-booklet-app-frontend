@@ -12,27 +12,26 @@ const WorkplaceColumn = ({ users, index, shift, workplace, is12HoursShift }) => 
 
   const style = {
     backgroundColor: isOver ? '#686868' : 'transparent', // Change to your desired color
-    minHeight: '5rem',
-    border: '1px solid black',
-    marginBottom: '1rem',
-    borderRadius: '0 0 1rem 1rem',
-    paddingBottom: '1rem',
   };
 
   return (
-    <div key={index} style={style} ref={setNodeRef}>
+    <div className="workplace-column" key={index} style={style} ref={setNodeRef}>
       {/* header */}
-      <div style={{ display: 'flex', background: 'black', justifyContent: 'center', alignItems: 'center', marginBottom: '.5rem' }}>
-        <h1 style={{ fontSize: '1.2rem', textAlign: 'center', lineHeight: '1.5' }}>{workplace}</h1>
+      <div className="workplace-header">
+        <h1>{workplace}</h1>
       </div>
-      <p>shift duration: {is12HoursShift ? '12' : '8'}</p>
-      <ul>
-        {users.map((user, index) => (
-          <li key={index} style={{ marginBottom: '.5rem' }}>
-            <UserItem user={user} />
-          </li>
-        ))}
-      </ul>
+      <div className="workplace-column-content">
+        <div className="shift-duration-header">
+          <p>Zmiana: {is12HoursShift ? '12' : '8'} godzin</p>
+        </div>
+        <ul>
+          {users.map((user, index) => (
+            <li key={index}>
+              <UserItem user={user} />
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
