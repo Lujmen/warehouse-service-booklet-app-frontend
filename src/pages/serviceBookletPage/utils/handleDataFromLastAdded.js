@@ -8,11 +8,9 @@ export const handleDataFromLastAdded = async (data) => {
   if (Array.isArray(dataToFormat)) {
     dataToFormat.forEach((element) => {
       if (element.hasOwnProperty('element')) {
-        console.log('element');
         console.log(element.element);
         formattedData.push({ message: element.element.model + ' uzytkownik jest wpisany na suwnice', isPosted: true, id: element.element._id });
       } else if (element.hasOwnProperty('error')) {
-        console.log('error');
         console.log(element.error);
         formattedData.push({ message: element.error.model + ' ' + element.error.message, isPosted: false });
       }

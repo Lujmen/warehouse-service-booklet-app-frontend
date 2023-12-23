@@ -21,7 +21,6 @@ const ServiceBookletPage = () => {
           </NavLink>
         </div>
       )}
-
       <Outlet />
     </div>
   );

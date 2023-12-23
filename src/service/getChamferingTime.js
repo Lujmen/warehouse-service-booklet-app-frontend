@@ -1,4 +1,5 @@
 export const getChamferingTime = async (data) => {
+  console.log(data);
   const { startDate, endDate } = data;
   const response = await fetch(process.env.REACT_APP_BASE_API_URL + `chamfering/getTimeFromDateRange?startDate=${startDate}&endDate=${endDate}`, {
     method: 'get',

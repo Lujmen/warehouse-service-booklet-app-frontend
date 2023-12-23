@@ -1,5 +1,6 @@
 const forkliftModelService = {
   getForkliftModels: async () => {
+    console.log('is it invoke');
     const response = await fetch(process.env.REACT_APP_BASE_API_URL + 'enums/getForkliftTypes', {
       method: 'GET',
     })

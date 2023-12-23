@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import loginService from '../service/loginService';
+import authService from '../service refactor/authService';
 
 const AuthContext = React.createContext();
 
@@ -13,7 +14,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     console.log('update auth context');
     setLoading(true);
-    loginService
+    authService
       .checkSession()
       .then((data) => {
         const { user, workplace, workplaceModel } = data.isActive;
@@ -30,7 +31,6 @@ const AuthProvider = ({ children }) => {
       })
       .catch((error) => {
         localStorage.clear();
-        console.log('error was here');
       })
       .finally(() => setLoading(false));
   }, []);
@@ -38,7 +38,9 @@ const AuthProvider = ({ children }) => {
   const handleLogin = async (data) => {
     console.log('handle login function');
     try {
-      const response = await loginService.login(data);
+      const response = await authService.login(data);
+      console.log(response);
+      // const response = await loginService.login(data);
       setIsAuthenticated(response.authenticated);
       setUserDetailsState({ id: response.activeStatus.user, username: response.username });
       setUserRoleState(response.role);
@@ -48,6 +50,7 @@ const AuthProvider = ({ children }) => {
         setWorkplaceDetailsState({ workplace: response.activeStatus.workplace });
       }
     } catch (error) {
+      console.log(error);
       console.log('error was here ! ');
       throw error;
     }
@@ -56,7 +59,7 @@ const AuthProvider = ({ children }) => {
   const handleLogOut = async (navigate) => {
     console.log('handle logout finction');
     try {
-      await loginService
+      await authService
         .logout()
         .then(() => {
           setIsAuthenticated('');

@@ -5,6 +5,7 @@ import InfoListItem from './infoListItem';
 import { useState } from 'react';
 import PaginationBar from '../../../components/paginationBar/paginationBar';
 import LoadingSpinner from '../../../components/loadingSpinner/loadingSpinner';
+import infoService from '../../../service refactor/infoService';
 
 const InfoList = () => {
   const [page, setPage] = useState({ page: 1 });
@@ -12,7 +13,7 @@ const InfoList = () => {
     data: infos,
     isLoading,
     error,
-  } = useQuery({ queryKey: ['infos', page], queryFn: () => getInfos(page.page), retry: false, gcTime: 0, retry: 0 });
+  } = useQuery({ queryKey: ['infos', page], queryFn: () => infoService.getAll(page.page), retry: false, gcTime: 0, retry: 0 });
   if (isLoading) {
     return (
       <div>

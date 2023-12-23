@@ -16,6 +16,7 @@ const loginService = {
       } else {
         // Check the response and extract the error message if available
         const errorResponse = await response.json();
+        console.log(errorResponse);
         throw new Error(errorResponse.message || 'Wrong credentials');
       }
     } catch (err) {

@@ -8,6 +8,7 @@ import { checkIfShouldBeDisabledForChamferingTime, checkIfShouldBeDisabledForCha
 import getChamferingListByDate from '../../../service/getChamferingListByDate';
 import './chamferingReportsPage.css';
 import LoadingSpinner from '../../../components/loadingSpinner/loadingSpinner';
+import chamferingService from '../../../service refactor/chemferingService';
 
 const ChamferingReportsPage = () => {
   const [queryData, setQueryData] = useState({ key: '', page: '1' });
@@ -18,7 +19,7 @@ const ChamferingReportsPage = () => {
     isLoading: isLoadingChamferingTime,
   } = useQuery({
     queryKey: ['chamferingTime', queryData],
-    queryFn: () => getChamferingTime(queryData),
+    queryFn: () => chamferingService.calcTimeByDataRande(queryData),
     onSuccess: () => refetchChamferingDateRangeList(),
     enabled: checkIfShouldBeDisabledForChamferingTime(queryData),
     retry: false,
@@ -33,7 +34,7 @@ const ChamferingReportsPage = () => {
     refetch: refetchChamferingDateRangeList,
   } = useQuery({
     queryKey: ['chamferingDateRangeList', queryData],
-    queryFn: () => getChamferingListByDate(queryData),
+    queryFn: () => chamferingService.getByDateRange(queryData),
     enabled: checkIfShouldBeDisabledForChamferingList(queryData),
     retry: false,
     cacheTime: 0,

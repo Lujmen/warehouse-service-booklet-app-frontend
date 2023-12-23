@@ -3,6 +3,7 @@ import React from 'react';
 import { getLastAddedServiceBookletEntryByUserId } from '../../../service/getLastAddedServiceBookletEntryByUserId';
 import { handleDataFromLastAdded } from '../utils/handleDataFromLastAdded';
 import leaveFromWorkplace from '../utils/leaveFromWorkplace';
+import serviceBookletService from '../../../service refactor/serviceBookletService';
 
 const CurrentWorkplaceComponent = () => {
   const queryClient = useQueryClient();
@@ -14,7 +15,7 @@ const CurrentWorkplaceComponent = () => {
   } = useQuery({
     queryKey: ['lastEntry'],
     queryFn: async () => {
-      const data = await getLastAddedServiceBookletEntryByUserId();
+      const data = await serviceBookletService.getLastAddedServiceBookletEntryByUserId();
       return await handleDataFromLastAdded(data);
     },
     gcTime: 0,

@@ -28,7 +28,8 @@ const ServiceBookletEntryForm = () => {
         queryClient.invalidateQueries({ queryKey: ['lastEntry'] });
       });
     } catch (error) {
-      setError(error);
+      console.log(error);
+      setError(error.message);
     }
   };
   return (

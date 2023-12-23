@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import getAllForUserFromCurrentShift from '../../../service/getAllForUserFromCurrentShift';
 import formattedDate from '../../../utils/formattedData';
 import PaginationBar from '../../../components/paginationBar/paginationBar';
+import chamferingService from '../../../service refactor/chemferingService';
 
 const CharmferingList = () => {
   const [page, setPage] = useState({ page: 1 });
@@ -11,7 +12,13 @@ const CharmferingList = () => {
     data: chamferingList,
     isLoading,
     error,
-  } = useQuery({ queryKey: ['charmferingList', page], queryFn: () => getAllForUserFromCurrentShift(page.page), retry: false, gcTime: 0, retry: 0 });
+  } = useQuery({
+    queryKey: ['charmferingList', page],
+    queryFn: () => chamferingService.getAllFromCurrentShift(page.page),
+    retry: false,
+    gcTime: 0,
+    retry: 0,
+  });
 
   if (isLoading) {
     return <h1>Loading</h1>;

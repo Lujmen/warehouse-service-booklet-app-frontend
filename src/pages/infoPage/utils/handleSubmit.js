@@ -1,3 +1,4 @@
+import infoService from '../../../service refactor/infoService';
 import postInfo from '../../../service/postInfo';
 
 export const handleSubmit = async (e, file, info, queryClient, setIsSubmiting, setError) => {
@@ -6,7 +7,7 @@ export const handleSubmit = async (e, file, info, queryClient, setIsSubmiting, s
   e.preventDefault();
   try {
     const dataObj = { file, info };
-    await postInfo(dataObj);
+    await infoService.post(dataObj);
     await queryClient.invalidateQueries({ queryKey: ['infos'] });
     setIsSubmiting(false);
   } catch (error) {

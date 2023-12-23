@@ -1,3 +1,4 @@
+import serviceBookletService from '../../../service refactor/serviceBookletService';
 import serviceBookletEntryService from '../../../service/serviceBookletEntryService';
 
 export const handeSubmitForm = async (data, additionalData, setIsSubmiting) => {
@@ -5,7 +6,7 @@ export const handeSubmitForm = async (data, additionalData, setIsSubmiting) => {
   const reqObj = { ...data, ...additionalData };
   console.log(reqObj);
   try {
-    const result = await serviceBookletEntryService.addEntry(reqObj);
+    const result = await serviceBookletService.addEntry(reqObj);
     console.log(result);
     if (result && !(result instanceof Error)) {
       setIsSubmiting(false);
