@@ -16,6 +16,8 @@ import './dndBoard.css';
 const DndBoard = () => {
   // need to chenge state after schedule fetched
   const [is12HoursShift, set12HoursShift] = useState({ smallCart: false, crane: false, forklift: false });
+  // check week for schedule for now two options current and next
+  const [week, setWeek] = useState('current');
   const [schedule, setSchedule] = useState(initialSchedule);
   const [isLoading, setIsLoading] = useState(true);
   const [dragingUser, setDragingUser] = useState(null);
@@ -41,74 +43,70 @@ const DndBoard = () => {
   const sensors = useSensors(mouseSensor, touchSensor);
 
   useEffect(() => {
-    fetchUsers(setUsers, setIsLoading, setSchedule, set12HoursShift);
-  }, []);
+    fetchUsers(setUsers, setIsLoading, setSchedule, set12HoursShift, week);
+  }, [week]);
 
-  if (isLoading) {
-    return (
-      <div>
-        <LoadingSpinner />
-      </div>
-    );
-  } else {
-    return (
-      <div className="dnd-board-container">
-        <div className="forms-container">
-          {/* button container */}
-          <div className="save-button-container">
-            <button className="btn-primary" onClick={() => createScheduleFormUSerList(users, schedule)}>
-              Zapisz
-            </button>
-          </div>
-          {/* week select form */}
-          <div className="select-week-container">
-            <SelectWeekForm />
-          </div>
-          {/* 12h shift options */}
-          <div className="select-shift-duration-container">
-            <Select12HoursShiftForm
-              set12HoursShift={set12HoursShift}
-              is12HoursShift={is12HoursShift}
-              submitFunction={() => scheduleModificationFor12HoursShift(is12HoursShift, setSchedule, setUsers)}
-            />
-          </div>
+  return (
+    <div className="dnd-board-container">
+      <div className="forms-container">
+        {/* button container */}
+        <div className="save-button-container">
+          <button className="btn-primary" onClick={() => createScheduleFormUSerList(users, schedule, week)}>
+            Zapisz
+          </button>
         </div>
-        {/* for now this styling each column 2rem padding */}
+        {/* week select form */}
+        <div className="select-week-container">
+          <SelectWeekForm setWeek={setWeek} week={week} />
+        </div>
+        {/* 12h shift options */}
+        <div className="select-shift-duration-container">
+          <Select12HoursShiftForm
+            set12HoursShift={set12HoursShift}
+            is12HoursShift={is12HoursShift}
+            submitFunction={() => scheduleModificationFor12HoursShift(is12HoursShift, setSchedule, setUsers)}
+          />
+        </div>
+      </div>
+      {/* for now this styling each column 2rem padding */}
+      {isLoading ? (
+        <LoadingSpinner />
+      ) : (
         <div className="dnd-columns-area">
           <DndContext sensors={sensors} onDragStart={onDragStart} onDragEnd={onDragEnd}>
             <UsersColumn users={users.filter((user) => user.columnId === 'unsigned')} />
-            {shifts.map((shift, index) => (
-              <ul>
-                <li key={index + 'shift'}>
-                  <ShiftColumn users={users} shiftColumnIndex={index} shift={shift.type} workplaces={schedule[shift.type]} />
-                </li>
-              </ul>
-            ))}
+            <div className="shift-columns">
+              {shifts.map((shift, index) => (
+                <ul>
+                  <li key={index + 'shift'}>
+                    <ShiftColumn users={users} shiftColumnIndex={index} shift={shift.type} workplaces={schedule[shift.type]} />
+                  </li>
+                </ul>
+              ))}
+            </div>
             {/*when i use here portal ignore my css classes */}
-            <DragOverlay>{dragingUser && <UserItem user={dragingUser} isDraggingOverlay={true} />}</DragOverlay>
+            {createPortal(<DragOverlay>{dragingUser && <UserItem user={dragingUser} isDraggingOverlay={true} />}</DragOverlay>, document.body)}
           </DndContext>
         </div>
-      </div>
+      )}
+    </div>
+  );
+  // for now i leave this like that
+  function onDragEnd(e) {
+    const { active, over } = e;
+    if (!e.over) return;
+    console.log(over.data.current.is12HoursShift);
+    const userIndex = users.findIndex((user) => user._id === active.id);
+    setUsers((prevUsers) =>
+      prevUsers.map((user, index) => (index === userIndex ? { ...user, columnId: over.id, is12HoursShift: over.data.current.is12HoursShift } : user))
     );
-    // for now i leave this like that
-    function onDragEnd(e) {
-      const { active, over } = e;
-      if (!e.over) return;
-      console.log(over.data.current.is12HoursShift);
-      const userIndex = users.findIndex((user) => user._id === active.id);
-      setUsers((prevUsers) =>
-        prevUsers.map((user, index) =>
-          index === userIndex ? { ...user, columnId: over.id, is12HoursShift: over.data.current.is12HoursShift } : user
-        )
-      );
-      setDragingUser(null);
-      return;
-    }
-    function onDragStart(e) {
-      const { active } = e;
-      const userIndex = users.findIndex((user) => user._id === active.id);
-      setDragingUser(users[userIndex]);
-    }
+    setDragingUser(null);
+    return;
+  }
+  function onDragStart(e) {
+    const { active } = e;
+    const userIndex = users.findIndex((user) => user._id === active.id);
+    setDragingUser(users[userIndex]);
   }
 };
 

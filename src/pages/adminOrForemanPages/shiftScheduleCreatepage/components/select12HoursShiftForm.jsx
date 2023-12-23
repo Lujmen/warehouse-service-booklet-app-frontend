@@ -2,7 +2,7 @@ import React from 'react';
 
 const Select12HoursShiftForm = ({ set12HoursShift, is12HoursShift, submitFunction }) => {
   return (
-    <div>
+    <>
       <div className="select-shift-header">
         <p>12 godzinna</p>
         <p>zmiana</p>
@@ -41,7 +41,7 @@ const Select12HoursShiftForm = ({ set12HoursShift, is12HoursShift, submitFunctio
           Zatwierdz
         </button>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,7 +1,7 @@
 export const sheduleService = {
-  async createShedule(shedule) {
+  async createShedule(shedule, week) {
     try {
-      const response = fetch('http://localhost:3050/api/schedule/createOrUpdate', {
+      const response = fetch(`http://localhost:3050/api/schedule/createOrUpdate?week=${week}`, {
         method: 'post',
 
         headers: {
@@ -22,9 +22,11 @@ export const sheduleService = {
       console.log(error);
     }
   },
-  async getIfExists() {
+  // return false if dont find
+  async getIfExists(week) {
+    console.log(week);
     try {
-      const response = await fetch('http://localhost:3050/api/schedule/get', {
+      const response = await fetch(`http://localhost:3050/api/schedule/get?week=${week}`, {
         method: 'get',
       });
       if (response.ok) {

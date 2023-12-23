@@ -1,7 +1,7 @@
 import { sheduleService } from '../../../../service/shceduleService';
 import { initialSchedule } from '../data/data';
 
-export const createScheduleFormUSerList = (users, shcedule) => {
+export const createScheduleFormUSerList = (users, shcedule, week) => {
   let schedule = JSON.parse(JSON.stringify(shcedule));
   //   create new list for users whose assigned to workplace
   const dataFormUsers = users.map((user) => {
@@ -26,5 +26,5 @@ export const createScheduleFormUSerList = (users, shcedule) => {
   console.log(schedule);
 
   //send shcedule dataa to backend
-  sheduleService.createShedule(schedule);
+  sheduleService.createShedule(schedule, week);
 };

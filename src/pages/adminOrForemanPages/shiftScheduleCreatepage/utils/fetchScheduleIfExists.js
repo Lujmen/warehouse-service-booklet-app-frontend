@@ -1,5 +1,5 @@
 import { sheduleService } from '../../../../service/shceduleService';
-import { shifts } from '../data/data';
+import { initialSchedule, shifts } from '../data/data';
 export const fetchScheduleIfExists = async (shedule) => {
   //when i fetch schedule i must check if workplace is 12 hours shift
   //and overrite schedule
@@ -9,19 +9,23 @@ export const fetchScheduleIfExists = async (shedule) => {
   // need to change
   let modifidedSchedule;
   // shift i constant list where types correspond name of the shift firstShift etc...
-  modifidedSchedule = shifts.map((shift) => {
-    return {
-      [shift.type]: shedule[shift.type].map((shift) => {
-        return { workplace: shift.workplace, is12HoursShift: shift.is12HoursShift, users: [] };
-      }),
-    };
-    // return { [shift.type]: { workplace: shedule[shift.type].workplace, is12HoursShift: shedule[shift.type].is12HoursShift } };
-  });
-  const shiftsObject = modifidedSchedule.reduce((acc, shift) => {
-    const shiftType = Object.keys(shift)[0]; // Assuming there's only one key in each shift object
-    acc[shiftType] = shift[shiftType];
-    return acc;
-  }, {});
-  console.log(shiftsObject);
-  return shiftsObject;
+  if (shedule) {
+    modifidedSchedule = shifts.map((shift) => {
+      return {
+        [shift.type]: shedule[shift.type].map((shift) => {
+          return { workplace: shift.workplace, is12HoursShift: shift.is12HoursShift, users: [] };
+        }),
+      };
+      // return { [shift.type]: { workplace: shedule[shift.type].workplace, is12HoursShift: shedule[shift.type].is12HoursShift } };
+    });
+    const shiftsObject = modifidedSchedule.reduce((acc, shift) => {
+      const shiftType = Object.keys(shift)[0]; // Assuming there's only one key in each shift object
+      acc[shiftType] = shift[shiftType];
+      return acc;
+    }, {});
+    console.log(shiftsObject);
+    return shiftsObject;
+  } else {
+    return initialSchedule;
+  }
 };

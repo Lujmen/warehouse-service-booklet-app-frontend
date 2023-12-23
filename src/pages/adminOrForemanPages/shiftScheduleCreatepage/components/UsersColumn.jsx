@@ -3,18 +3,21 @@ import React from 'react';
 import UserItem from './UserItem';
 
 const UsersColumn = ({ users }) => {
-  const { setNodeRef, over } = useDroppable({
+  const { setNodeRef, isOver } = useDroppable({
     id: 'unsigned',
     data: {
       is12HoursShift: '',
     },
   });
+  const style = {
+    backgroundColor: isOver ? '#686868' : 'transparent', // Change to your desired color
+  };
 
   /* ... */
   return (
     <div className="user-column" ref={setNodeRef}>
       {/* header */}
-      <div className="user-column-headre">
+      <div style={style} className="user-column-header">
         <h1>Uzytkownicy</h1>
       </div>
       <ul>

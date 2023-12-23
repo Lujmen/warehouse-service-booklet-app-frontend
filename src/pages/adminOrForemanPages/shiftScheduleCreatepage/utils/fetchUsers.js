@@ -3,13 +3,15 @@ import usersService from '../../../../service/userService';
 import { shifts } from '../data/data';
 import { fetchScheduleIfExists } from './fetchScheduleIfExists';
 
-export const fetchUsers = async (setUsers, setLoading, setShcedule, set12HoursShift) => {
+export const fetchUsers = async (setUsers, setLoading, setShcedule, set12HoursShift, week) => {
+  setLoading(true);
   // i fetch all users and copare it with shedule if exists
   let users = await usersService.getAllUsers();
   users = users.map((user) => ({ ...user, columnId: 'unsigned', is12HoursShift: '' }));
   //here i need to use separatly function to get schedule
   //and extract users from it
-  const shedule = await sheduleService.getIfExists();
+  const shedule = await sheduleService.getIfExists(week);
+
   if (shedule) {
     shifts.map((shift) => {
       shedule[shift.type].map((workplace) => {

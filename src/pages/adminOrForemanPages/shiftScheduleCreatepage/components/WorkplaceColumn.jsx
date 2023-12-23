@@ -15,18 +15,18 @@ const WorkplaceColumn = ({ users, index, shift, workplace, is12HoursShift }) => 
   };
 
   return (
-    <div className="workplace-column" key={index} style={style} ref={setNodeRef}>
+    <div style={style} ref={setNodeRef} className="workplace-column" key={index}>
       {/* header */}
       <div className="workplace-header">
         <h1>{workplace}</h1>
       </div>
       <div className="workplace-column-content">
-        <div className="shift-duration-header">
+        <div className="workplace-duration-header">
           <p>Zmiana: {is12HoursShift ? '12' : '8'} godzin</p>
         </div>
         <ul>
           {users.map((user, index) => (
-            <li key={index}>
+            <li className="workplace-list-item" key={index}>
               <UserItem user={user} />
             </li>
           ))}

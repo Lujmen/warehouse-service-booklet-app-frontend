@@ -9,17 +9,22 @@ const UserItem = ({ user, isDraggingOverlay }) => {
 
   const style = {
     transform: CSS.Translate.toString(transform),
-
     touchAction: 'none',
+    textAlign: 'center',
+    borderRadius: '.25rem',
 
-    visibility: isDragging ? 'hidden' : 'visible',
+    // visibility: isDragging ? 'hidden' : 'visible',
     cursor: isDraggingOverlay ? 'grabbing' : 'grab',
-    backgroundColor: isDraggingOverlay ? '#305099' : 'transparent',
+    backgroundColor: isDraggingOverlay ? 'lightblue' : 'royalblue',
+    border: isDraggingOverlay ? '1px solid yellow' : '1px solid white',
+  };
+  const pStyle = {
+    color: isDraggingOverlay ? 'yellow' : 'white',
   };
 
   return (
     <div className="user-item" key={user._id} ref={setNodeRef} style={style} {...attributes} {...listeners}>
-      <p>{user.username}</p>
+      <p style={pStyle}>{user.username}</p>
     </div>
   );
 };
