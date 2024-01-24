@@ -19,8 +19,14 @@ export const handleDataFromLastAdded = async (data) => {
     return formattedData;
   } else {
     console.log('dlaczego ?');
-    console.log(dataToFormat);
-    console.log({ message: dataToFormat.model + ' uzytkownik jest wpisany na wozek' });
-    return { message: dataToFormat.model + ' uzytkownik jest wpisany na wozek', isPosted: true, id: dataToFormat._id };
+    console.log(dataToFormat.message);
+    console.log({ message: dataToFormat.message + ' uzytkownik jest wpisany na wozek' });
+    if (typeof dataToFormat.model !== 'undefined') {
+      console.log('wpisany jest');
+      return { message: `uzytkownik jest wpisany na wozek ${dataToFormat.model}`, isPosted: true, id: dataToFormat._id };
+    } else {
+      console.log('jest nie wpisany');
+      return { message: dataToFormat.message };
+    }
   }
 };

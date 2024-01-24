@@ -25,4 +25,14 @@
 .chamfering-page-main-container .chamfering-time-container{
     margin: auto;
 }
+.chamfering-tabel{
+    
+}
+.chamfering-tabel th{
+    border:1px solid white;
+}
+.chamfering-tabel td{
+    text-align: center;
+    border:1px solid white;
+}
 

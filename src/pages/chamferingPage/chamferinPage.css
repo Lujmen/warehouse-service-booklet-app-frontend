@@ -1,57 +1,32 @@
-.chamfering-page-container{
-    display: flex;
+.chamfering-form-container{
+    display:flex;
     flex-direction: column;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    margin: auto;
-    margin-top: 1rem;
-    max-width: 98%;
-    min-width: 390px;
-}
-@media(max-width: 390px){
-    .chamfering-page-container{ 
-        min-width: 390px;
-        max-width: 390px;
-    }
-}
-/* form */
-.chamfering-page-container .chamfering-form-container{
-    display: flex;
-    align-items: center;
     justify-content: center;
+    margin-left: 1rem;
 }
-@media(max-width: 390px){
-    .chamfering-page-container .chamfering-form-container{ 
-        margin:0 1rem 0 1rem;
-    }
-}
-.chamfering-page-container .chamfering-form-container .input-box{
+.chamfering-form-container .input-box{
     display: flex;
     flex-direction: column;
-    align-items: center;
     align-items: flex-start;
+    justify-content: flex-start;
     margin-bottom: 1rem;
 }
-.chamfering-page-container .chamfering-form-container .input-box input{
-    border-radius: .25rem;
+.chamfering-form-container .input-box input{
     border: none;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    border-radius: 5px;
     text-align: center;
-}
-/* table */
-.chamfering-tabel{
-    margin-bottom: 1rem;
-}
-.chamfering-tabel table tr td{
-    text-align: center;
-}    
 
-@media(max-width:500px){
-.chamfering-tabel table tr th{
-    font-size: .8rem;
-}    
-.chamfering-tabel table tr td{
-    font-size: .8rem;
-}    
+   
+
 }
+.chamfering-form-container .input-box input[type="submit"] {
+    max-width: 10rem;
+   
+}
+.chamfering-form-container .input-box input[type="submit"]:not([disabled]):hover  {
+   cursor: pointer;
+   
+}
+
+
+

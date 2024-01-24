@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import infoService from '../../../service refactor/infoService';
 import LoadingSpinner from '../../../components/loadingSpinner/loadingSpinner';
 import { useQueryClient } from '@tanstack/react-query';
+import { useAuth } from '../../../context/authProvider';
 
 const InfoListItem = ({ props }) => {
+  const { userRole } = useAuth();
   const queryClient = useQueryClient();
   const [image, setImage] = useState(null);
   const [isImageLoading, setImageLoading] = useState(true);
@@ -47,13 +49,13 @@ const InfoListItem = ({ props }) => {
           )
         )}
       </div>
-      <button onClick={checkImage} className="btn-primary">
-        check
-      </button>
+
       {/* avalible and visible only if admin or higher */}
-      <button onClick={() => deleteInfo(props._id)} className="btn-primary">
-        delete
-      </button>
+      {(userRole.toLowerCase() === 'foreman' || userRole.toLowerCase() === 'admin') && (
+        <button onClick={() => deleteInfo(props._id)} className="btn-primary">
+          delete
+        </button>
+      )}
     </div>
   );
   async function getImage(iamgeId) {

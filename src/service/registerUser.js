@@ -7,12 +7,16 @@ export const registerUser = async (user) => {
       },
       body: JSON.stringify(user),
     });
+    const data = await result.json();
     if (result.ok) {
+      console.log(data);
       return;
     } else {
-      throw result.json();
+      console.log('if request no ok');
+      throw data;
     }
   } catch (error) {
-    throw await error;
+    console.log(error.message);
+    return await error;
   }
 };

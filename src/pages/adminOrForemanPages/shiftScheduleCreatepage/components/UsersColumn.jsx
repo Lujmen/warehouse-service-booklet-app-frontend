@@ -15,18 +15,21 @@ const UsersColumn = ({ users }) => {
 
   /* ... */
   return (
-    <div className="user-column" ref={setNodeRef}>
-      {/* header */}
+    <div>
       <div style={style} className="user-column-header">
         <h1>Uzytkownicy</h1>
       </div>
-      <ul>
-        {users.map((user, index) => (
-          <li key={index}>
-            <UserItem user={user} />
-          </li>
-        ))}
-      </ul>
+      <div className="user-column" ref={setNodeRef}>
+        {/* header */}
+
+        <ul>
+          {users.map((user, index) => (
+            <li key={index}>
+              <UserItem user={user} />
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

@@ -5,17 +5,45 @@ import { useState } from 'react';
 import handleChangeCharmferingForm from '../utils/handleChangeCharmferinfForm';
 import handleCharmferingFormSubmit from '../utils/handleCharmferingFormSubmit';
 import checkIsSubmitEnabled from '../utils/checkIsSubmitEnabled';
+import { logDOM } from '@testing-library/react';
 
 const CharmferingForm = () => {
   const queryClient = useQueryClient();
+  const [showSuccesStatus, setSuccesStatus] = useState({ id: 1 });
   const [formState, setFormState] = useState({ differenceFromPingink: '', diffrentFromQC: '', timeOfChamfering: '' });
   const [isError, setError] = useState();
   const [isSubmiting, setIsSubmiting] = useState(false);
+  const errorcheck = () => {
+    console.log(isError);
+  };
+  // should export to utils
+  const setSuccesHandler = () => {
+    setSuccesStatus({ message: 'added' });
+
+    setTimeout(function () {
+      setSuccesStatus('');
+
+      console.log('State changed to', showSuccesStatus);
+    }, 1500);
+
+    console.log('wtf from now1');
+    setSuccesStatus({ message: 'pomyslnie dodano' });
+    console.log('handle succes function: ' + showSuccesStatus.message);
+    console.log('is this print from here');
+    console.log(showSuccesStatus.message);
+  };
 
   const handleSubmit = async (e) => {
-    await handleCharmferingFormSubmit(formState, setError, setIsSubmiting, e, setFormState)
+    console.log('is this in range ?');
+    await handleCharmferingFormSubmit(formState, setError, setIsSubmiting, e, setFormState, setSuccesHandler)
       .then(() => queryClient.invalidateQueries(['charmferingList']))
-      .catch((err) => {});
+      .catch((err) => {
+        {
+          console.log(err);
+          setError('error message');
+        }
+      });
+    console.log('is this finished ?');
   };
   return (
     <div className="chamfering-form-container">
@@ -52,9 +80,16 @@ const CharmferingForm = () => {
           />
         </div>
         <div className="input-box">
-          <input disabled={!checkIsSubmitEnabled(formState) || isSubmiting} className="btn-primary button" type="submit" value="Dodaj" />
+          <input
+            disabled={!checkIsSubmitEnabled(formState) || isSubmiting}
+            className="btn-primary button submit-button-chamfering"
+            type="submit"
+            value="Dodaj"
+          />
         </div>
-        <div className="error-box">{isError && isError}</div>
+        <div className="error-box" style={{ color: 'red' }}>
+          {isError && isError}
+        </div>
       </form>
     </div>
   );

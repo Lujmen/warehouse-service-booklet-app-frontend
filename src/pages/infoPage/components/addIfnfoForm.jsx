@@ -19,7 +19,9 @@ const AddIfnfoForm = () => {
           <textarea className="text-input" onChange={(e) => handleChangeInput(e, setInfo)} type="text" name="info" id="info" />
         </div>
         <div className="input-box">
-          <label htmlFor="photo">Dodaj zdjęcie</label>
+          <label className="add-photo" htmlFor="photo">
+            Dodaj zdjęcie
+          </label>
           <input id="photo" type="file" accept="image/*" onChange={(e) => handleChangeImage(e, setFile, setError)} />
         </div>
         <div className="input-box-button">

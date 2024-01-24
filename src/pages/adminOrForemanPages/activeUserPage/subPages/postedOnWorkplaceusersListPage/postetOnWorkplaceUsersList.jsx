@@ -1,5 +1,5 @@
 import React from 'react';
-import getUsersWhosePostetOnWorkplace from '../../../../../service/getUsersWhosePostetOnWorkplace';
+import userService from '../../../../../service refactor/userService';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import PostedOnWorkplaceUserComponent from './components/postedOnWorkplaceUserComponent';
 import kickOutUserFromWorkplace from '../../../../../service/kickOutUserFromWorkplace';
@@ -13,10 +13,10 @@ const PostetOnWorkplaceUsersList = () => {
     error,
     isLoading,
     refetch,
-  } = useQuery({ queryKey: ['postedOnWorkplaceUsers'], queryFn: () => getUsersWhosePostetOnWorkplace() });
+  } = useQuery({ queryKey: ['postedOnWorkplaceUsers'], queryFn: () => userService.getAllPostedOnWorkplace() });
 
   const { mutateAsync: kickOutFromWorkplace } = useMutation({
-    mutationFn: (userId) => kickOutUserFromWorkplace(userId),
+    mutationFn: (userId) => userService.kickOutFromWorkplace(userId),
     onSuccess: () => refetch(),
   });
 

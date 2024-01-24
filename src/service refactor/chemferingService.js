@@ -79,18 +79,20 @@ const chamferingService = {
         },
         body: JSON.stringify(model),
       });
+      console.log(await response);
       const data = await response.json();
       if (response.ok) {
         console.log('res is ok');
         return data;
       } else {
+        console.log('is from here ? ');
         console.log('res is no ok');
-        return { error: data.message };
+        throw data;
       }
     } catch (error) {
       console.log('error from catch');
       console.log(error);
-      return 'server error';
+      throw error;
     }
   },
 };

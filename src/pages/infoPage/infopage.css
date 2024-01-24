@@ -19,6 +19,17 @@
     min-height: 10rem;
     resize: none;
 }
+#photo{
+    display: none;
+}
+.add-photo{
+    border: 1px solid white;
+    width: 9rem;
+    border-radius: .5rem;
+    text-align: center;
+    color:black;
+    background-color: white;
+}
 .info-page-container .add-info-form-container .error-box{
     margin-top: 1rem;
 }
@@ -26,7 +37,9 @@
     margin-bottom: 1rem;
     border-top: 1px solid white;
 }
-
+.info-page-container .list-container .list-item-container button{
+    margin-bottom: .5rem;
+}
 @media(max-width:390px){
     
 }

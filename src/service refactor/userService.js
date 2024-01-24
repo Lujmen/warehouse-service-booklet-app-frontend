@@ -23,7 +23,7 @@ const userService = {
   // // its return sensivite data
   getAllPostedOnWorkplace: async () => {
     try {
-      const response = await fetch(process.env.REACT_APP_BASE_API_URL + 'user/getAllPostedUsers', {
+      const response = await fetch(process.env.REACT_APP_BASE_API_URL + 'serviceBooklet/getAllServiceBookletEntriesThatAreNotClosed', {
         method: 'get',
         credentials: 'include',
       });
@@ -45,7 +45,7 @@ const userService = {
   //work at beckend i should add return statment if try kick out not posted user
   kickOutFromWorkplace: async (userId) => {
     try {
-      const response = await fetch(process.env.REACT_APP_BASE_API_URL + `/user/kickOutUserFromWorkplace`, {
+      const response = await fetch(process.env.REACT_APP_BASE_API_URL + `user/kickOutUserFromWorkplace`, {
         method: 'PUT',
         credentials: 'include',
         headers: {
@@ -66,6 +66,7 @@ const userService = {
       return { error: 'server error' };
     }
   },
+
   register: async (user) => {
     try {
       const response = await fetch(process.env.REACT_APP_BASE_API_URL + 'user/registerUser', {

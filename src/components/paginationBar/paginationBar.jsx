@@ -19,11 +19,11 @@ const PaginationBar = (props) => {
 
   return (
     <nav className="pagination-nav bg-primary-100">
-      <button className="btn-primary" disabled={page === 1} onClick={prevPage}>
+      <button className="btn-primary" disabled={page * 1 === 1} onClick={prevPage}>
         Prev Page
       </button>
       <p>{page}</p>
-      <button className="btn-primary" disabled={page >= totalPages} onClick={nextPage}>
+      <button className="btn-primary" disabled={page * 1 >= totalPages} onClick={nextPage}>
         Next Page
       </button>
     </nav>

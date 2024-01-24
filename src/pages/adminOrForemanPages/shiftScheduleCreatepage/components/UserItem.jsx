@@ -13,7 +13,7 @@ const UserItem = ({ user, isDraggingOverlay }) => {
     textAlign: 'center',
     borderRadius: '.25rem',
 
-    // visibility: isDragging ? 'hidden' : 'visible',
+    visibility: isDragging ? 'hidden' : 'visible',
     cursor: isDraggingOverlay ? 'grabbing' : 'grab',
     backgroundColor: isDraggingOverlay ? 'lightblue' : 'royalblue',
     border: isDraggingOverlay ? '1px solid yellow' : '1px solid white',

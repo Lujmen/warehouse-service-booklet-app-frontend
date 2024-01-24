@@ -23,7 +23,6 @@ import HomePage from './pages/homePage/homePage';
 import RegisterUser from './pages/adminOrForemanPages/registerUser/registerUser';
 import NoLoginRequire from './auth/noLoginRequire';
 import NormalUserRequired from './auth/normalUserRequired';
-
 import DndBoard from './pages/adminOrForemanPages/shiftScheduleCreatepage/DndBoard';
 
 const router = createBrowserRouter([
