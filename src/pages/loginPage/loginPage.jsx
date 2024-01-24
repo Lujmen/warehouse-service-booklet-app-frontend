@@ -9,14 +9,25 @@ import { useNavigate } from 'react-router-dom';
 import './loginPage.css';
 
 const LoginPage = () => {
-  const { data: forkliftModels, isLoading } = useQuery({ queryKey: ['forkliftModels'], queryFn: forkliModelOptions });
   const [formData, setFormData] = useState({
     username: '',
     password: '',
   });
+  const { data: forkliftModels, isLoading } = useQuery({
+    queryKey: ['forkliftModels'],
+    queryFn: async () => {
+      const models = await forkliModelOptions();
+      setFormData({ ...formData, workplaceModel: models[0] });
+      return models;
+    },
+  });
+
   const [loginFormError, setLoginFormError] = useState({ message: '' });
   const { handleLogin } = useAuth();
   const navigate = useNavigate();
+  const checkLogin = () => {
+    console.log(formData);
+  };
 
   return (
     <div className="login-form-container bg-primary-100">
@@ -28,8 +39,8 @@ const LoginPage = () => {
             <input className="text-input" onChange={(e) => handleInputChange(formData, e, setFormData)} id="username" type="text" />
           </div>
           <div className="input-container">
-            <label htmlFor="password">Login</label>
-            <input className="text-input" onChange={(e) => handleInputChange(formData, e, setFormData)} id="password" type="text" />
+            <label htmlFor="password">Password</label>
+            <input className="text-input" onChange={(e) => handleInputChange(formData, e, setFormData)} id="password" type="password" />
           </div>
           <div className="input-container">
             <label htmlFor="">Wybierz stanowisko:</label>
@@ -59,6 +70,9 @@ const LoginPage = () => {
         </form>
       </div>
       <div className="error-container"> {loginFormError.message && <p>{loginFormError.message}</p>}</div>
+      <button onClick={checkLogin} className="btn-primary">
+        check
+      </button>
     </div>
   );
 };
